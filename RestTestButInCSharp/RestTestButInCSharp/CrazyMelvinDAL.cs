@@ -38,6 +38,59 @@ namespace RestTestButInCSharp
             return customers;
         }
 
+        public IEnumerable<Product> GetAllProducts()
+        {
+            List<Product> products = new List<Product>();
+            conn.Open();
+            SqlCommand com = conn.CreateCommand();
+            com.CommandText = ProductSelect;
+            using (SqlDataReader reader = com.ExecuteReader())
+            {
+                while (reader.NextResult())
+                {
+                    products.Add(ReadProduct(reader));
+                }
+            }
+            conn.Close();
+            return products;
+        }
+
+        public IEnumerable<Order> GetAllOrders()
+        {
+            List<Order> orders = new List<Order>();
+            conn.Open();
+            SqlCommand com = conn.CreateCommand();
+            com.CommandText = OrderSelect;
+            using (SqlDataReader reader = com.ExecuteReader())
+            {
+                while (reader.NextResult())
+                {
+                    orders.Add(ReadOrder(reader));
+                }
+            }
+            conn.Close();
+            return orders;
+        }
+
+        public IEnumerable<Cart> GetAllCarts()
+        {
+            List<Cart> carts = new List<Cart>();
+            conn.Open();
+            SqlCommand com = conn.CreateCommand();
+            com.CommandText = CartSelect;
+            using (SqlDataReader reader = com.ExecuteReader())
+            {
+                while (reader.NextResult())
+                {
+                    carts.Add(ReadCart(reader));
+                }
+            }
+            conn.Close();
+            return carts;
+        }
+
+        #region Data Reading Helpers
+
         private const string CustomerSelect = "SELECT custId, firstName, lastName, phoneNumber FROM tblCustomer ";
         private Customer ReadCustomer(SqlDataReader reader)
         {
@@ -81,5 +134,7 @@ namespace RestTestButInCSharp
             cart.quantity = reader.GetInt32(2);
             return cart;
         }
+
+        #endregion
     }
 }
