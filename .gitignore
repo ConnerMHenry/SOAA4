@@ -11,3 +11,4 @@ RestTestButInCSharp/.vs/RestTestButInCSharp/v15/.suo
 *.woff
 *.woff2
 *.lock
+*.cache
