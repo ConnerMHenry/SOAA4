@@ -1,0 +1,94 @@
+﻿body {
+    background-color: white;
+}
+
+.epic {
+    color: red;
+    font-size: 20px;
+    font-family: verdana;
+    font-weight: bold;
+}
+
+.smallepic {
+    color: red;
+    font-size: 12px;
+    font-family: verdana;
+    font-weight: bold;
+}
+
+.block {
+    align-content: center;
+    align-self: center;
+    background-color: white;
+    border-color: black;
+    border-radius: 3px;
+    border-width: 3px;
+    border-style: solid;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 10%;
+    margin-left: 10%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.basetext {
+    font-family: arial;
+    font-size: 12;
+    color: black;
+    font-weight: bold;
+}
+
+.inputtag {
+    font-family: arial;
+    font-size: 12;
+    color: black;
+    font-weight: bold;
+    margin-right: 10px;
+    margin-left: 20px;
+}
+
+input {
+    border-color: black;
+    border-radius: 3px;
+    border-width: 3px;
+    border-style: solid;
+    width: 130px;
+    height: 30px;
+    margin-left: 10px;
+}
+
+button {
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    background-color: #8b48ff;
+    border-radius: 8px;
+    width: 180px;
+    height: 40px;
+}
+
+.MyButton {
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    background-color: #8b48ff;
+    border-radius: 8px;
+    width: 180px;
+    height: 40px;
+    border-width: 0px;
+}
+
+a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    background-color: #8b48ff;
+    border-radius: 8px;
+    width: 150px;
+    height: 40px;
+}
