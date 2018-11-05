@@ -32,6 +32,17 @@
     padding-bottom: 20px;
 }
 
+td {
+    align-self: baseline;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+    padding-left:10px;
+    padding-top: 5px;
+}
+
 .basetext {
     font-family: arial;
     font-size: 12;
@@ -48,7 +59,7 @@
     margin-left: 20px;
 }
 
-input {
+.MyInput {
     border-color: black;
     border-radius: 3px;
     border-width: 3px;

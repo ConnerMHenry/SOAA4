@@ -3,16 +3,63 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <body>
         <div class = "block" align="center" style="margin-right: 30%; margin-left: 30%;">
-		    <a class ="basetext"> Please generate a Purchase Order (P.O.)</a>
+		    <asp:Label runat="server" ID="DisplayLbl" CssClass ="basetext">Please generate a Purchase Order (P.O.)</asp:Label>
 	    </div>
         <!-- Customer Block -->
 	    <div class = "block" style="padding-top: 0px;">
 		    <h1 style="font-size: 20px; margin-bottom: 40px;" class="inputtag" align="center">Customer</h1>
 		    <div>
-			    <a class="inputtag">custID<input type="text"/></a>
-			    <a class="inputtag">firstName<input type="text"/></a>
-			    <a class="inputtag">lastName<input type="text"/></a>
-			    <a class="inputtag">phoneNumber<input type="text"/> xxx-xxx-xxxx</a>
+                <table>              
+                    <tr>
+                        <td>
+                            <!-- Customer ID Input -->
+			                <asp:Label runat="server" Text="custID" CssClass="inputtag" />
+                            <br /><br />
+                        </td>
+                        <td>
+                            <asp:TextBox runat="server" ID="CustID" CssClass="MyInput" />
+                            <br/>
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator1"
+                                ControlToValidate="CustID" runat="server"
+                                ErrorMessage="Only Numbers allowed"
+                                CssClass="error"
+                                ValidationExpression="\d+"/>
+                        </td>
+                
+                        <!-- First Name Input -->
+                        <td>
+                            <asp:Label runat="server" Text="firstName" CssClass="inputtag" />
+                            <asp:TextBox runat="server" ID="FirstName" CssClass="MyInput" />
+                            <br/>
+                            <br/>
+                        </td>
+
+                        <!-- Last Name Input -->
+                        <td>
+                            <asp:Label runat="server" Text="lastName" CssClass="inputtag" />
+                            <asp:TextBox runat="server" ID="LastName" CssClass="MyInput" />
+                            <br/>
+                            <br/>
+                        </td>
+
+                        <!-- Phone Number Input -->
+                        <td>
+                            <asp:Label runat="server" Text="phoneNumber" CssClass="inputtag" />
+                            <br /><br />
+                        </td>
+
+                        <td>
+                            <asp:TextBox runat="server" ID="PhoneNumber" CssClass="MyInput" />
+                            <asp:Label runat="server" Text="xxx-xxx-xxxx" CssClass="inputtag" />  
+                            <br/>
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator2"
+                                ControlToValidate="PhoneNumber" runat="server"
+                                ErrorMessage="Invalid phone number format"
+                                CssClass="error"
+                                ValidationExpression="(\d{3}-\d{3}-\d{4})?"/>
+                        </td>
+                    </tr>
+                </table>
 		    </div>
 	    </div>
         
@@ -20,10 +67,58 @@
 	    <div class = "block" style="padding-top: 0px;">
 		    <h1 style="font-size: 20px; margin-bottom: 40px;" class="inputtag" align="center">Product</h1>
 		    <div>
-			    <a class="inputtag">prodID<input type="text"/></a>
-			    <a class="inputtag">productName<input type="text"/></a>
-			    <a class="inputtag">price<input type="text"/></a>
-			    <a class="inputtag">prodWeight<input type="text"/></a>
+                <table>              
+                    <tr>
+                        <td>
+                            <!-- Product ID Input -->
+			                <asp:Label runat="server" Text="prodID" CssClass="inputtag" />
+                            <br />
+                            <br />
+                        </td>
+                        <td>
+                            <asp:TextBox runat="server" ID="ProdID" CssClass="MyInput" />
+                            <br />
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator3"
+                                ControlToValidate="ProdID" runat="server"
+                                ErrorMessage="Only Numbers allowed"
+                                CssClass="error"
+                                ValidationExpression="\d+"/>
+                        </td>                        
+                        <!-- Product Name Input -->
+                        <td>
+                            <asp:Label runat="server" Text="productName" CssClass="inputtag" />
+                            <br />
+                            <br />
+                        </td>
+                        <td>
+                            <asp:TextBox runat="server" ID="ProductName" CssClass="MyInput" />
+                            <br />
+                            <br />
+                        </td>
+                        <!-- Price Input -->
+                        <td>
+                            <asp:Label runat="server" Text="price" CssClass="inputtag" />
+                            <br />
+                            <br />
+                        </td>
+                        <td>
+                            <asp:TextBox runat="server" ID="Price" CssClass="MyInput" />
+                            <br />
+                            <br />
+                        </td>
+                        <!-- Product Weight Input -->
+                        <td>
+                            <asp:Label runat="server" Text="prodWeight" CssClass="inputtag" />
+                            <br />
+                            <br />
+                        </td>
+                        <td>
+                            <asp:TextBox runat="server" ID="ProdWeight" CssClass="MyInput" />
+                            <br />
+                            <br />
+                        </td>
+                    </tr>
+                </table>
 		    </div>
 	    </div>
         
@@ -31,10 +126,22 @@
 	    <div class = "block" style="padding-top: 0px;">
 		    <h1 style="font-size: 20px; margin-bottom: 40px;" class="inputtag" align="center">Order</h1>
 		    <div>
-			    <a class="inputtag">orderID<input type="text"/></a>
-			    <a class="inputtag">custID<input type="text"/></a>
-			    <a class="inputtag">poNumber<input type="text"/></a>
-			    <a class="inputtag">orderDate<input type="text"/> MM-DD-YY</a>
+                <!-- Order ID Input -->
+			    <asp:Label runat="server" Text="orderID" CssClass="inputtag" />
+                <asp:TextBox runat="server" ID="OrderID" CssClass="MyInput" />
+
+                <!-- Customer ID Input -->
+                <asp:Label runat="server" Text="custID" CssClass="inputtag" />
+                <asp:TextBox runat="server" ID="OrderCustID" CssClass="MyInput" />
+
+                <!-- PO Number Input -->
+                <asp:Label runat="server" Text="poNumber" CssClass="inputtag" />
+                <asp:TextBox runat="server" ID="PoNumber" CssClass="MyInput" />
+
+                <!-- Order Date Input -->
+                <asp:Label runat="server" Text="orderDate" CssClass="inputtag" />
+                <asp:TextBox runat="server" ID="OrderDate" CssClass="MyInput" />
+                <asp:Label runat="server" Text="MM-DD-YY" CssClass="inputtag" />
 		    </div>
 	    </div>	
 
@@ -42,9 +149,17 @@
 	    <div class = "block" style="padding-top: 0px;">
 		    <h1 style="font-size: 20px; margin-bottom: 40px;" class="inputtag" align="center">Cart</h1>
 		    <div>
-			    <a class="inputtag">orderID<input type="text"/></a>
-			    <a class="inputtag">prodID<input type="text"/></a>
-			    <a class="inputtag">quantity<input type="text"/></a>
+                <!-- Order ID Input -->
+			    <asp:Label runat="server" Text="orderID" CssClass="inputtag" />
+                <asp:TextBox runat="server" ID="CartOrderID" CssClass="MyInput" />
+
+                <!-- Product ID Input -->
+			    <asp:Label runat="server" Text="prodID" CssClass="inputtag" />
+                <asp:TextBox runat="server" ID="CartProductID" CssClass="MyInput" />
+
+                <!-- Quantity Input -->
+                <asp:Label runat="server" Text="quantity" CssClass="inputtag" />
+                <asp:TextBox runat="server" ID="Quantity" CssClass="MyInput" />
 		    </div>
 	    </div>	
 
