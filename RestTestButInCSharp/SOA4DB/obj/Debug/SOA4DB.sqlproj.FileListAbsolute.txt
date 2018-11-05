@@ -1,0 +1,5 @@
+C:\Users\mmaxner1684\Desktop\SOAA4\RestTestButInCSharp\SOA4DB\bin\Debug\SOA4DB.dacpac
+C:\Users\mmaxner1684\Desktop\SOAA4\RestTestButInCSharp\SOA4DB\bin\Debug\SOA4DB.dll
+C:\Users\mmaxner1684\Desktop\SOAA4\RestTestButInCSharp\SOA4DB\bin\Debug\SOA4DB.pdb
+C:\Users\mmaxner1684\Desktop\SOAA4\RestTestButInCSharp\SOA4DB\obj\Debug\SOA4DB.dll
+C:\Users\mmaxner1684\Desktop\SOAA4\RestTestButInCSharp\SOA4DB\obj\Debug\SOA4DB.pdb

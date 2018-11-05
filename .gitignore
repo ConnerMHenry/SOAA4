@@ -10,3 +10,4 @@ RestTestButInCSharp/.vs/RestTestButInCSharp/v15/.suo
 *.ttf
 *.woff
 *.woff2
+*.lock
