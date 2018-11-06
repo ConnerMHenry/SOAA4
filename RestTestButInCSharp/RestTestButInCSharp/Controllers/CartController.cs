@@ -10,7 +10,9 @@ namespace RestTestButInCSharp.Controllers
 {
     public class CartController : ApiController
     {
-		Cart[] carts = new Cart[]
+        private const string BaseRoute = WebApiConfig.BaseEndpoint + "Cart/";
+
+        Cart[] carts = new Cart[]
 		{
 			new Cart{ orderId = 1, prodId = 1, quantity = 500 },
 			new Cart{ orderId = 1, prodId = 2, quantity = 1000 },
@@ -25,14 +27,25 @@ namespace RestTestButInCSharp.Controllers
 			return carts;
 		}
 
-		public IHttpActionResult GetOrder(int id)
-		{
-			var order = carts.FirstOrDefault((o) => o.orderId == id);
-			if (order == null)
-			{
-				return NotFound();
-			}
-			return Ok(order);
-		}
-	}
+        [HttpPost]
+        [Route(BaseRoute + "add")]
+        public IHttpActionResult InsertCart([FromBody] Cart newCart)
+        {
+            return Ok(newCart);
+        }
+
+        [HttpPut]
+        [Route(BaseRoute + "update")]
+        public IHttpActionResult UpdateCart([FromBody] Cart Cart)
+        {
+            return Ok(Cart);
+        }
+
+        [HttpDelete]
+        [Route(BaseRoute + "delete")]
+        public IHttpActionResult UpdateDelete([FromBody] Cart Cart)
+        {
+            return Ok(Cart);
+        }
+    }
 }

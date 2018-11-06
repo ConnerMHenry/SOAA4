@@ -46,24 +46,24 @@ namespace CrazyMelvinsCleint
 
         private void SetupUI()
         {
-            switch(userOption)
-            {
-                case Option.Search:
-                    DisplayLbl.Text = "Search for customer orders";
-                    break;
+            //switch(userOption)
+            //{
+            //    case Option.Search:
+            //        DisplayLbl.Text = "Search for customer orders";
+            //        break;
 
-                case Option.Update:
-                    DisplayLbl.Text = "Update your order!";
-                    break;
+            //    case Option.Update:
+            //        DisplayLbl.Text = "Update your order!";
+            //        break;
 
-                case Option.Delete:
-                    DisplayLbl.Text = "Please delete something. Hopefully this site.";
-                    break;
+            //    case Option.Delete:
+            //        DisplayLbl.Text = "Please delete something. Hopefully this site.";
+            //        break;
 
-                default:
-                    DisplayLbl.Text = "Please generate a Purchase Order (P.O.)";
-                    break;
-            }
+            //    default:
+            //        DisplayLbl.Text = "Please generate a Purchase Order (P.O.)";
+            //        break;
+            //}
         }
 
         protected void ExecuteBtn_Click(object sender, EventArgs e)

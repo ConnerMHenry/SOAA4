@@ -10,7 +10,9 @@ namespace RestTestButInCSharp.Controllers
 {
     public class CustomerController : ApiController
     {
-		Customer[] customers = new Customer[]
+        private const string BaseRoute = WebApiConfig.BaseEndpoint + "Customer/";
+
+        Customer[] customers = new Customer[]
 		{
 			new Customer{ custId = 1, firstName = "Joe", lastName = "Smith", phoneNumber = "555-555-1212"},
 			new Customer{ custId = 2, firstName = "Nancy", lastName = "Jones", phoneNumber = "555-235-4578"},
@@ -22,14 +24,26 @@ namespace RestTestButInCSharp.Controllers
 			return customers;
 		}
 
-		public IHttpActionResult GetCustomer(int id)
+        [HttpPost]
+        [Route(BaseRoute + "add")]
+		public IHttpActionResult InsertCustomer([FromBody] Customer newCustomer)
 		{
-			var customer = customers.FirstOrDefault((c) => c.custId == id);
-			if (customer == null)
-			{
-				return NotFound();
-			}
-			return Ok(customer);
+			return Ok(newCustomer);
 		}
-	}
+
+        [HttpPut]
+        [Route(BaseRoute + "update")]
+        public IHttpActionResult UpdateCustomer([FromBody] Customer customer)
+        {
+            return Ok(customer);
+        }
+
+        [HttpDelete]
+        [Route(BaseRoute + "deletes")]
+        public IHttpActionResult DeleteCustomer([FromBody] Customer customer)
+        {
+            return Ok(customer);
+        }
+
+    }
 }

@@ -3,7 +3,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <body>
         <div class = "block" align="center" style="margin-right: 30%; margin-left: 30%;">
-		    <asp:Label runat="server" ID="DisplayLbl" CssClass ="basetext">Please generate a Purchase Order (P.O.)</asp:Label>
+		    <asp:Label runat="server" ID="DisplayLbl" CssClass ="basetext">Please generate a Purchase Order (P.O.)</asp:Label>  <input id="GeneratePoCheckbox" style="margin-top:5px" type="checkbox" />
 	    </div>
         <!-- Customer Block -->
 	    <div class = "block" style="padding-top: 0px;">
@@ -117,6 +117,11 @@
                             <br />
                             <br />
                         </td>
+                        <td>
+                            <asp:Label runat="server" Text="kg." CssClass="inputtag" />
+                            <br />
+                            <br />
+                        </td>
                     </tr>
                 </table>
 		    </div>
@@ -126,22 +131,75 @@
 	    <div class = "block" style="padding-top: 0px;">
 		    <h1 style="font-size: 20px; margin-bottom: 40px;" class="inputtag" align="center">Order</h1>
 		    <div>
-                <!-- Order ID Input -->
-			    <asp:Label runat="server" Text="orderID" CssClass="inputtag" />
-                <asp:TextBox runat="server" ID="OrderID" CssClass="MyInput" />
-
-                <!-- Customer ID Input -->
-                <asp:Label runat="server" Text="custID" CssClass="inputtag" />
-                <asp:TextBox runat="server" ID="OrderCustID" CssClass="MyInput" />
-
-                <!-- PO Number Input -->
-                <asp:Label runat="server" Text="poNumber" CssClass="inputtag" />
-                <asp:TextBox runat="server" ID="PoNumber" CssClass="MyInput" />
-
-                <!-- Order Date Input -->
-                <asp:Label runat="server" Text="orderDate" CssClass="inputtag" />
-                <asp:TextBox runat="server" ID="OrderDate" CssClass="MyInput" />
-                <asp:Label runat="server" Text="MM-DD-YY" CssClass="inputtag" />
+                 <table>              
+                    <tr>
+                        <!-- Order ID Input -->
+                        <td>
+			                <asp:Label runat="server" Text="orderID" CssClass="inputtag" />
+                            <br />
+                            <br />
+                        </td>
+                        <td>
+                            <asp:TextBox runat="server" ID="OrderID" CssClass="MyInput" />
+                            <br />
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator4"
+                                ControlToValidate="OrderID" runat="server"
+                                ErrorMessage="Only Numbers allowed"
+                                CssClass="error"
+                                ValidationExpression="\d+"/>
+                        </td>
+                        <!-- Customer ID Input -->
+                        <td>
+                            <asp:Label runat="server" Text="custID" CssClass="inputtag" />
+                            <br />
+                            <br />
+                        </td>
+                        <td>
+                            <asp:TextBox runat="server" ID="OrderCustID" CssClass="MyInput" />
+                            <br />
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator5"
+                                ControlToValidate="OrderCustID" runat="server"
+                                ErrorMessage="Only Numbers allowed"
+                                CssClass="error"
+                                ValidationExpression="\d+"/>
+                        </td>
+                        <!-- PO Number Input -->
+                        <td>
+                            <asp:Label runat="server" Text="poNumber" CssClass="inputtag" />
+                            <br />
+                            <br />
+                        </td>
+                        <td>
+                            <asp:TextBox runat="server" ID="PoNumber" CssClass="MyInput" />
+                            <br />
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator6"
+                                ControlToValidate="PoNumber" runat="server"
+                                ErrorMessage="Only Numbers allowed"
+                                CssClass="error"
+                                ValidationExpression="\d+"/>
+                        </td>
+                        <!-- Order Date Input -->
+                        <td>
+                            <asp:Label runat="server" Text="orderDate" CssClass="inputtag" />
+                            <br />
+                            <br />
+                        </td>
+                        <td>
+                            <asp:TextBox runat="server" ID="OrderDate" CssClass="MyInput" />
+                            <br />
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator7"
+                                ControlToValidate="OrderDate" runat="server"
+                                ErrorMessage="Please enter a valid date"
+                                CssClass="error"
+                                ValidationExpression="((0?[13578]|10|12)(-|\/)((0[0-9])|([12])([0-9]?)|(3[01]?))(-|\/)((\d{4})|(\d{2}))|(0?[2469]|11)(-|\/)((0[0-9])|([12])([0-9]?)|(3[0]?))(-|\/)((\d{4}|\d{2})))?"/>
+                        </td>
+                        <td>
+                            <asp:Label runat="server" Text="MM-DD-YY" CssClass="inputtag" />
+                            <br />
+                            <br />
+                        </td>
+                    </tr>
+                </table>
 		    </div>
 	    </div>	
 

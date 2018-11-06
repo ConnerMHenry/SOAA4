@@ -10,7 +10,9 @@ namespace RestTestButInCSharp.Controllers
 {
 	public class OrderController : ApiController
 	{
-		Order[] orders = new Order[]
+        private const string BaseRoute = WebApiConfig.BaseEndpoint + "Order/";
+
+        Order[] orders = new Order[]
 		{
 			new Order{ orderId = 1, custId = 1, orderDate = DateTime.Parse("2018-09-15"), poNumber = "GRAP-09-2018-001"},
 			new Order{ orderId = 2, custId = 1, orderDate = DateTime.Parse("2018-09-30"), poNumber = "GRAP-09-2018-056"},
@@ -22,14 +24,25 @@ namespace RestTestButInCSharp.Controllers
 			return orders;
 		}
 
-		public IHttpActionResult GetOrder(int id)
-		{
-			var order = orders.FirstOrDefault((o) => o.orderId == id);
-			if (order == null)
-			{
-				return NotFound();
-			}
-			return Ok(order);
+        [HttpPost]
+        [Route(BaseRoute + "add")]
+        public IHttpActionResult InsertOrder([FromBody] Order newOrder)
+		{		
+			return Ok(newOrder);
 		}
-	}
+
+        [HttpPut]
+        [Route(BaseRoute + "update")]
+        public IHttpActionResult UpdateOrder([FromBody] Order order)
+        {
+            return Ok(order);
+        }
+
+        [HttpDelete]
+        [Route(BaseRoute + "add")]
+        public IHttpActionResult DeleteOrder([FromBody] Order order)
+        {
+            return Ok(order);
+        }
+    }
 }
