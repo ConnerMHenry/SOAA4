@@ -1,5 +1,3 @@
-
-RestTestButInCSharp/.vs/RestTestButInCSharp/v15/.suo
 *.ide
 *.ide-shm
 *.ide-wal
@@ -13,3 +11,4 @@ RestTestButInCSharp/.vs/RestTestButInCSharp/v15/.suo
 *.lock
 *.cache
 *.suo
+
