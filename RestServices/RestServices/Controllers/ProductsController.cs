@@ -12,17 +12,19 @@ namespace RestServices.Controllers
     {
         private const string BaseRoute = WebApiConfig.BaseEndpoint + "Product/";
 
-        Product[] products = new Product[]
-		{
-			new Product{ prodId = 1, prodName = "Grommet", price = 0.02m, prodWeight = 0.005m, inStock = true},
-			new Product{ prodId = 2, prodName = "Widgets", price = 2.35m, prodWeight = 0.532m, inStock = true},
-			new Product{ prodId = 3, prodName = "Bushings", price = 8.75m, prodWeight = 5.650m, inStock = false}
-		};
-
+        [Route(BaseRoute)]
 		public IEnumerable<Product> GetAllProducts()
 		{
-			return products;
-		}
+            try
+            {
+                CrazyMelvinDAL dal = new CrazyMelvinDAL();
+                return dal.GetAllProducts();
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
 
         [HttpPost]
         [Route(BaseRoute + "add")]
