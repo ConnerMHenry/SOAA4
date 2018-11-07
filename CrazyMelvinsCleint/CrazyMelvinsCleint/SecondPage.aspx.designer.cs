@@ -31,13 +31,13 @@ namespace CrazyMelvinsCleint {
         protected global::System.Web.UI.WebControls.TextBox CustID;
         
         /// <summary>
-        /// RegularExpressionValidator1 control.
+        /// CustomerIDValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator CustomerIDValidator;
         
         /// <summary>
         /// FirstName control.
@@ -67,13 +67,13 @@ namespace CrazyMelvinsCleint {
         protected global::System.Web.UI.WebControls.TextBox PhoneNumber;
         
         /// <summary>
-        /// RegularExpressionValidator2 control.
+        /// CustomerPhoneNumberValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator CustomerPhoneNumberValidator;
         
         /// <summary>
         /// ProdID control.
@@ -119,6 +119,15 @@ namespace CrazyMelvinsCleint {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox ProdWeight;
+        
+        /// <summary>
+        /// InStock control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox InStock;
         
         /// <summary>
         /// OrderID control.

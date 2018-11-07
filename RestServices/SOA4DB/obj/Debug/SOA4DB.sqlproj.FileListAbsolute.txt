@@ -14,3 +14,8 @@ C:\Users\mmaxner1684\Desktop\SOAA4\RestServices\SOA4DB\obj\Debug\postdeploy.sql
 C:\Users\mmaxner1684\Desktop\SOAA4\RestServices\SOA4DB\obj\Debug\predeploy.sql
 C:\Users\mmaxner1684\Desktop\SOAA4\RestServices\SOA4DB\obj\Debug\SOA4DB.dll
 C:\Users\mmaxner1684\Desktop\SOAA4\RestServices\SOA4DB\obj\Debug\SOA4DB.pdb
+C:\tmp\SOAA4\RestServices\SOA4DB\bin\Debug\SOA4DB.dacpac
+C:\tmp\SOAA4\RestServices\SOA4DB\bin\Debug\SOA4DB.dll
+C:\tmp\SOAA4\RestServices\SOA4DB\bin\Debug\SOA4DB.pdb
+C:\tmp\SOAA4\RestServices\SOA4DB\obj\Debug\SOA4DB.dll
+C:\tmp\SOAA4\RestServices\SOA4DB\obj\Debug\SOA4DB.pdb

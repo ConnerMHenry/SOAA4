@@ -1,0 +1,99 @@
+﻿/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+    margin: 0;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+
+
+/* Set widths on the form inputs since otherwise they're 100% wide */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+    .jumbotron {
+        margin-top: 20px;
+    }
+
+    .body-content {
+        padding: 0;
+    }
+}
+
+.header {
+    overflow: hidden;
+    background-color: #384d63;
+    margin: 0 auto;
+    margin-bottom: 40px;
+}
+
+.header-link {
+    float: left;
+    color: #e2e2de;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 25px 35px;
+    text-decoration: none;
+}
+
+.header-link:hover {
+    float: left;
+    color: #f1f1ef;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    text-decoration: none;
+    padding: 25px 35px;
+    background-color: #47637e;
+}
+
+.title {
+    font-size: 26px;
+}
+
+.header-buttons {
+    padding-right:20px;
+    float: right;
+}
+
+.button-main {
+    padding: 10px 30px;
+    color: #384d63;
+    border-color: #384d63;
+    border-width: 4px;
+    border-radius: 8px;
+    font-weight: bold;
+    background-color: transparent;
+}
+
+.button-main:hover {
+    padding: 10px 30px;
+    color: #47637e;
+    border-color: #47637e;
+    border-width: 4px;
+    border-radius: 8px;
+    font-weight: bold;
+    background-color: transparent;
+}
+
+.button-norm {
+    padding: 10px 30px;
+    color: #e2e2de;
+    border-radius: 8px;
+    font-weight: bold;
+    background-color: #47637e;
+}
+
+.button-norm:hover {
+    padding: 10px 30px;
+    color: #f1f1ef;
+    font-weight: bold;
+    background-color: #384d63;
+}

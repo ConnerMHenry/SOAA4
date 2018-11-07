@@ -19,7 +19,7 @@
                         <td>
                             <asp:TextBox runat="server" ID="CustID" CssClass="MyInput" />
                             <br/>
-                            <asp:RegularExpressionValidator ID="RegularExpressionValidator1"
+                            <asp:RegularExpressionValidator ID="CustomerIDValidator"
                                 ControlToValidate="CustID" runat="server"
                                 ErrorMessage="Only Numbers allowed"
                                 CssClass="error"
@@ -52,7 +52,7 @@
                             <asp:TextBox runat="server" ID="PhoneNumber" CssClass="MyInput" />
                             <asp:Label runat="server" Text="xxx-xxx-xxxx" CssClass="inputtag" />  
                             <br/>
-                            <asp:RegularExpressionValidator ID="RegularExpressionValidator2"
+                            <asp:RegularExpressionValidator ID="CustomerPhoneNumberValidator"
                                 ControlToValidate="PhoneNumber" runat="server"
                                 ErrorMessage="Invalid phone number format"
                                 CssClass="error"
@@ -119,6 +119,16 @@
                         </td>
                         <td>
                             <asp:Label runat="server" Text="kg." CssClass="inputtag" />
+                            <br />
+                            <br />
+                        </td>
+                        <td>
+                            <asp:Label runat="server" Text="soldOut" CssClass="inputtag" />
+                            <br />
+                            <br />
+                        </td>
+                        <td>
+                            <asp:CheckBox runat="server" ID="InStock" />
                             <br />
                             <br />
                         </td>

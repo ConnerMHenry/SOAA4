@@ -4,14 +4,29 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using RestServices.Models;
 
 namespace CrazyMelvinsCleint
 {
     public partial class SecondPage : System.Web.UI.Page
     {
         private Option userOption;
+        private List<BaseValidator> validators;
+
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            validators = new List<BaseValidator>
+            {
+                CustomerIDValidator,
+                CustomerPhoneNumberValidator,
+                RegularExpressionValidator3,
+                RegularExpressionValidator4,
+                RegularExpressionValidator5,
+                RegularExpressionValidator6,
+                RegularExpressionValidator7,
+            };
+
             try
             {
                 string optionStr = Request.QueryString["option"];
@@ -40,52 +55,79 @@ namespace CrazyMelvinsCleint
             {
                 userOption = Option.Search;
             }
-
-            SetupUI();
-        }
-
-        private void SetupUI()
-        {
-            //switch(userOption)
-            //{
-            //    case Option.Search:
-            //        DisplayLbl.Text = "Search for customer orders";
-            //        break;
-
-            //    case Option.Update:
-            //        DisplayLbl.Text = "Update your order!";
-            //        break;
-
-            //    case Option.Delete:
-            //        DisplayLbl.Text = "Please delete something. Hopefully this site.";
-            //        break;
-
-            //    default:
-            //        DisplayLbl.Text = "Please generate a Purchase Order (P.O.)";
-            //        break;
-            //}
         }
 
         protected void ExecuteBtn_Click(object sender, EventArgs e)
         {
-            switch (userOption)
+            // Check if each validator is valid
+            bool valid = true;
+            foreach (BaseValidator validator in validators)
             {
-                case Option.Search:
-                    Search();
+                validator.Validate();
+                if (!validator.IsValid)
+                {
+                    valid = false;
                     break;
-
-                case Option.Update:
-                    Update();
-                    break;
-
-                case Option.Delete:
-                    Delete();
-                    break;
-
-                default:
-                    Insert();
-                    break;
+                }
             }
+
+            // If not, don't execute the function
+            if (!valid)
+            {
+                return;
+            }
+
+            Customer customer = new Customer()
+            {
+                custId = Convert.ToInt32(CustID.Text.ToString()),
+                firstName = FirstName.Text.ToString(),
+                lastName = LastName.Text.ToString(),
+                phoneNumber = PhoneNumber.Text.ToString()
+            };
+
+            Product product = new Product()
+            {
+                prodId = Convert.ToInt32(ProdID.Text.ToString()),
+                prodName = ProductName.Text.ToString(),
+                prodWeight = Convert.ToDecimal(ProdWeight.Text.ToString()),
+                inStock = InStock.Checked,
+                price = Convert.ToDecimal(Price.Text.ToString())
+            };
+
+            Order order = new Order()
+            {
+                orderId  = Convert.ToInt32(OrderID.Text.ToString()),
+                custId = Convert.ToInt32(OrderCustID.Text.ToString()),
+                orderDate = Convert.ToDateTime(OrderDate.Text.ToString()),
+                poNumber = PoNumber.Text.ToString()
+            };
+
+            Cart cart = new Cart()
+            {
+                orderId = Convert.ToInt32(CartOrderID.Text.ToString()),
+                prodId = Convert.ToInt32(CartProductID.Text.ToString()),
+                quantity = Convert.ToInt32(Quantity.Text.ToString())
+            };
+
+
+            //switch (userOption)
+            //{
+            //    case Option.Search:
+            //        Search();
+            //        break;
+
+            //    case Option.Update:
+            //        Update();
+            //        break;
+
+            //    case Option.Delete:
+            //        Delete();
+            //        break;
+
+            //    default:
+            //        Insert();
+            //        break;
+            //}
         }
 
         private void Search()

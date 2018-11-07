@@ -20,5 +20,22 @@ namespace RestServices.Models
 
         [JsonProperty]
         public string phoneNumber { get; set; }
+
+        public string ToJson()
+        {
+            return JsonConvert.SerializeObject(this);
+        }
+
+        public static Customer FromJson(string json)
+        {
+            try
+            {
+                return JsonConvert.DeserializeObject<Customer>(json);
+            }
+            catch
+            {
+                return null;
+            }
+        }
 	}
 }
