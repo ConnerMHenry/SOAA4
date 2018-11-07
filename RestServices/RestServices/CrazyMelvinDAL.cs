@@ -5,14 +5,12 @@ using System.Web;
 using System.Data;
 using System.Data.Sql;
 using System.Data.SqlClient;
-using RestTestButInCSharp.Models;
+using RestServices.Models;
 
 namespace RestTestButInCSharp
 {
     public class CrazyMelvinDAL
     {
-        
-
         private string connString = "Data Source=2A314-E06;Persist Security Info=False;User ID=SA;Pooling=False;MultipleActiveResultSets=False;Connect Timeout=60;Encrypt=False;TrustServerCertificate=True; Initial Catalog=SOA4DB";
         private SqlConnection conn;
 
@@ -54,6 +52,8 @@ namespace RestTestButInCSharp
             conn.Close();
             return products;
         }
+
+       
 
         public IEnumerable<Order> GetAllOrders()
         {
