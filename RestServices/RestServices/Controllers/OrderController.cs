@@ -12,17 +12,19 @@ namespace RestServices.Controllers
 	{
         private const string BaseRoute = WebApiConfig.BaseEndpoint + "Order/";
 
-        Order[] orders = new Order[]
-		{
-			new Order{ orderId = 1, custId = 1, orderDate = DateTime.Parse("2018-09-15"), poNumber = "GRAP-09-2018-001"},
-			new Order{ orderId = 2, custId = 1, orderDate = DateTime.Parse("2018-09-30"), poNumber = "GRAP-09-2018-056"},
-			new Order{ orderId = 3, custId = 3, orderDate = DateTime.Parse("2018-10-05"), poNumber = ""}
-		};
-
+        [Route(BaseRoute)]
 		public IEnumerable<Order> GetAllOrders()
 		{
-			return orders;
-		}
+            try
+            {
+                CrazyMelvinDAL dal = new CrazyMelvinDAL();
+                return dal.GetAllOrders();
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
 
         [HttpPost]
         [Route(BaseRoute + "add")]

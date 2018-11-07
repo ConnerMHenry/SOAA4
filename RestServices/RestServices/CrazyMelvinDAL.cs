@@ -35,7 +35,7 @@ namespace RestServices
             }
             using (SqlDataReader reader = com.ExecuteReader())
             {
-                while (reader.NextResult())
+                while (reader.Read())
                 {
                     customers.Add(ReadCustomer(reader));
                 }
@@ -56,7 +56,7 @@ namespace RestServices
             }
             using (SqlDataReader reader = com.ExecuteReader())
             {
-                while (reader.NextResult())
+                while (reader.Read())
                 {
                     products.Add(ReadProduct(reader));
                 }
@@ -76,7 +76,7 @@ namespace RestServices
             }
             using (SqlDataReader reader = com.ExecuteReader())
             {
-                while (reader.NextResult())
+                while (reader.Read())
                 {
                     orders.Add(ReadOrder(reader));
                 }
@@ -96,7 +96,7 @@ namespace RestServices
             }
             using (SqlDataReader reader = com.ExecuteReader())
             {
-                while (reader.NextResult())
+                while (reader.Read())
                 {
                     carts.Add(ReadCart(reader));
                 }
@@ -349,7 +349,7 @@ namespace RestServices
             return order;
         }
 
-        private const string CartSelect = "SELECT orderId, prodId, quantity FROM tblOrder ";
+        private const string CartSelect = "SELECT orderId, prodId, quantity FROM tblCart ";
         private Cart ReadCart(SqlDataReader reader)
         {
             Cart cart = new Cart();

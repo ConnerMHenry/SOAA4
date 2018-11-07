@@ -12,20 +12,19 @@ namespace RestServices.Controllers
     {
         private const string BaseRoute = WebApiConfig.BaseEndpoint + "Cart/";
 
-        Cart[] carts = new Cart[]
-		{
-			new Cart{ orderId = 1, prodId = 1, quantity = 500 },
-			new Cart{ orderId = 1, prodId = 2, quantity = 1000 },
-			new Cart{ orderId = 2, prodId = 3, quantity =  10},
-			new Cart{ orderId = 3, prodId = 1, quantity =  75},
-			new Cart{ orderId = 3, prodId = 2, quantity =  15},
-			new Cart{ orderId = 3, prodId = 3, quantity =  5}
-		};
-
+        [Route(BaseRoute)]
 		public IEnumerable<Cart> GetAllOrders()
 		{
-			return carts;
-		}
+            try
+            {
+                CrazyMelvinDAL dal = new CrazyMelvinDAL();
+                return dal.GetAllCarts();
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
 
         [HttpPost]
         [Route(BaseRoute + "add")]
