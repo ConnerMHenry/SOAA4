@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28010.2046
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestServices", "RestServices\RestServices.csproj", "{261A79B0-019C-4E47-8A89-820224C0ACB7}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "SOA4DB", "SOA4DB\SOA4DB.sqlproj", "{7D0DEF8F-B74F-4428-AA3D-CFBFDCF3188A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,12 @@ Global
 		{261A79B0-019C-4E47-8A89-820224C0ACB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{261A79B0-019C-4E47-8A89-820224C0ACB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{261A79B0-019C-4E47-8A89-820224C0ACB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D0DEF8F-B74F-4428-AA3D-CFBFDCF3188A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D0DEF8F-B74F-4428-AA3D-CFBFDCF3188A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D0DEF8F-B74F-4428-AA3D-CFBFDCF3188A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{7D0DEF8F-B74F-4428-AA3D-CFBFDCF3188A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D0DEF8F-B74F-4428-AA3D-CFBFDCF3188A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D0DEF8F-B74F-4428-AA3D-CFBFDCF3188A}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

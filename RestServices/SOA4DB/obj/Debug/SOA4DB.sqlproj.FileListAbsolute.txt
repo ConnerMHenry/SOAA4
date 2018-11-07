@@ -1,0 +1,16 @@
+C:\Users\mmaxner1684\Desktop\SOAA4\RestTestButInCSharp\SOA4DB\bin\Debug\SOA4DB.dacpac
+C:\Users\mmaxner1684\Desktop\SOAA4\RestTestButInCSharp\SOA4DB\bin\Debug\SOA4DB.dll
+C:\Users\mmaxner1684\Desktop\SOAA4\RestTestButInCSharp\SOA4DB\bin\Debug\SOA4DB.pdb
+C:\Users\mmaxner1684\Desktop\SOAA4\RestTestButInCSharp\SOA4DB\obj\Debug\SOA4DB.dll
+C:\Users\mmaxner1684\Desktop\SOAA4\RestTestButInCSharp\SOA4DB\obj\Debug\SOA4DB.pdb
+C:\Users\mmaxner1684\Desktop\SOAA4\RestTestButInCSharp\SOA4DB\obj\Debug\SOA4DB.sqlprojAssemblyReference.cache
+C:\Users\mmaxner1684\Desktop\SOAA4\RestServices\SOA4DB\bin\Debug\SOA4DB.dacpac
+C:\Users\mmaxner1684\Desktop\SOAA4\RestServices\SOA4DB\bin\Debug\SOA4DB.dll
+C:\Users\mmaxner1684\Desktop\SOAA4\RestServices\SOA4DB\bin\Debug\SOA4DB.pdb
+C:\Users\mmaxner1684\Desktop\SOAA4\RestServices\SOA4DB\obj\Debug\SOA4DB.sqlprojAssemblyReference.cache
+C:\Users\mmaxner1684\Desktop\SOAA4\RestServices\SOA4DB\obj\Debug\Model.xml
+C:\Users\mmaxner1684\Desktop\SOAA4\RestServices\SOA4DB\obj\Debug\refactor.xml
+C:\Users\mmaxner1684\Desktop\SOAA4\RestServices\SOA4DB\obj\Debug\postdeploy.sql
+C:\Users\mmaxner1684\Desktop\SOAA4\RestServices\SOA4DB\obj\Debug\predeploy.sql
+C:\Users\mmaxner1684\Desktop\SOAA4\RestServices\SOA4DB\obj\Debug\SOA4DB.dll
+C:\Users\mmaxner1684\Desktop\SOAA4\RestServices\SOA4DB\obj\Debug\SOA4DB.pdb
