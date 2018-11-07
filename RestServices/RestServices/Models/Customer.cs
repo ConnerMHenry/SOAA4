@@ -1,15 +1,24 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
 namespace RestServices.Models
 {
-	public class Customer
+    [JsonObject]
+    public class Customer
 	{
+        [JsonProperty]
 		public int custId { get; set; }
-		public string firstName { get; set; }
-		public string lastName { get; set; }
-		public string phoneNumber { get; set; }
+
+        [JsonProperty]
+        public string firstName { get; set; }
+
+        [JsonProperty]
+        public string lastName { get; set; }
+
+        [JsonProperty]
+        public string phoneNumber { get; set; }
 	}
 }
