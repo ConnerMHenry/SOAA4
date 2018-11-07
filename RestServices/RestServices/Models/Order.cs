@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace RestTestButInCSharp.Models
+namespace RestServices.Models
 {
 	public class Order
 	{

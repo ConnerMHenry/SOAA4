@@ -7,18 +7,16 @@ namespace RestServices
 {
     public static class WebApiConfig
     {
+        public const string BaseEndpoint = "api/v" + VersionNumber + "/";
+
+        public const string VersionNumber = "1";
+
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
 
             // Web API routes
             config.MapHttpAttributeRoutes();
-
-            config.Routes.MapHttpRoute(
-                name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
-            );
         }
     }
 }

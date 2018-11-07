@@ -4,9 +4,9 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using RestTestButInCSharp.Models;
+using RestServices.Models;
 
-namespace RestTestButInCSharp.Controllers
+namespace RestServices.Controllers
 {
     public class CustomerController : ApiController
     {
