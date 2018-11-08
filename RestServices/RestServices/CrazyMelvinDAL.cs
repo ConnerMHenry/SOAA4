@@ -11,7 +11,7 @@ namespace RestServices
 {
     public class CrazyMelvinDAL
     {
-        private string connString = "Data Source=2A314-D03;Persist Security Info=False;User ID=SA; Password=Conestoga1;Pooling=False;MultipleActiveResultSets=False;Connect Timeout=6;Encrypt=False;TrustServerCertificate=True; Initial Catalog=SOA4DB";
+        private string connString = "Data Source=2A213-D09;Persist Security Info=False;User ID=SA; Password=Conestoga1;Pooling=False;MultipleActiveResultSets=False;Connect Timeout=6;Encrypt=False;TrustServerCertificate=True; Initial Catalog=SOA4DB";
         private SqlConnection conn;
 
         public CrazyMelvinDAL()

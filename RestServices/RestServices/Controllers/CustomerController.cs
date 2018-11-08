@@ -35,7 +35,7 @@ namespace RestServices.Controllers
                 CrazyMelvinDAL dal = new CrazyMelvinDAL();
                 dal.InsertCustomer(newCustomer);
             }
-            catch
+            catch (Exception exceptional)
             {
                 return InternalServerError();
             }

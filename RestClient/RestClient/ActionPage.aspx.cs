@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using RestClient.Models;
+using System.Net.Http;
+using System.Net.Http.Headers;
 
 namespace RestClient
 {
@@ -57,6 +60,7 @@ namespace RestClient
                     break;
 
                 case Action.Insert:
+                    
                     ExecuteBtn.Text = "Insert";
                     break;
 
@@ -65,6 +69,56 @@ namespace RestClient
                     break;
             }
             
+        }
+
+        protected void btnInsertCustomer_Click(object sender, EventArgs e)
+        {
+            Customer cust = new Customer()
+            {
+                firstName = txtFirstName.Text,
+                lastName = txtLastName.Text,
+                phoneNumber = txtPhoneNumber.Text
+            };
+
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri("http://localhost:55040/api/v1/");
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            //HttpContent content = new StringContent(Json.Encode(cust));
+            try
+            {
+                HttpResponseMessage response = client.PostAsJsonAsync<Customer>("Customer/add", cust).Result;
+                Console.WriteLine(response.ToString());
+            }
+            catch (Exception exceptional)
+            {
+                Console.WriteLine(exceptional.Message);
+            }
+
+        }
+
+        protected void btnInsertProduct_Click(object sender, EventArgs e)
+        {
+            Customer cust = new Customer()
+            {
+                firstName = txtFirstName.Text,
+                lastName = txtLastName.Text,
+                phoneNumber = txtPhoneNumber.Text
+            };
+
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri("http://localhost:55040/api/v1/");
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            //HttpContent content = new StringContent(Json.Encode(cust));
+            try
+            {
+                HttpResponseMessage response = client.PostAsJsonAsync<Customer>("Customer/add", cust).Result;
+                Console.WriteLine(response.ToString());
+            }
+            catch (Exception exceptional)
+            {
+                Console.WriteLine(exceptional.Message);
+            }
+
         }
     }
 }
