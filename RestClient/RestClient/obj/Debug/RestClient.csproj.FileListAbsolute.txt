@@ -142,3 +142,6 @@ C:\Users\mmaxner1684\Desktop\SOAA4\RestClient\RestClient\obj\Debug\RestClient.pd
 C:\Users\mmaxner1684\Desktop\SOAA4\RestClient\RestClient\bin\Antlr3.Runtime.pdb
 C:\Users\mmaxner1684\Desktop\SOAA4\RestClient\RestClient\bin\System.Net.Http.Formatting.dll
 C:\Users\mmaxner1684\Desktop\SOAA4\RestClient\RestClient\bin\System.Net.Http.Formatting.xml
+C:\tmp\SOAA4\RestClient\RestClient\bin\System.Net.Http.Formatting.dll
+C:\tmp\SOAA4\RestClient\RestClient\bin\System.Web.Helpers.dll
+C:\tmp\SOAA4\RestClient\RestClient\bin\System.Net.Http.Formatting.xml

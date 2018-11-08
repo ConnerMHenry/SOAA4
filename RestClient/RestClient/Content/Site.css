@@ -1,4 +1,5 @@
-﻿/* Move down content because we have a fixed navbar that is 50px tall */
+﻿@import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap-glyphicons.css");
+/* Move down content because we have a fixed navbar that is 50px tall */
 body {
     margin: 0;
 }
@@ -31,32 +32,77 @@ textarea {
     background-color: #384d63;
     margin: 0 auto;
     margin-bottom: 40px;
+    height: 80px;
 }
 
 .header-link {
-    float: left;
     color: #e2e2de;
     text-align: center;
     font-weight: bold;
     font-size: 18px;
-    padding: 25px 35px;
     text-decoration: none;
+    display: inline-block;
+    vertical-align: middle;
+    align-self: stretch;
+    height: 100%;
 }
 
 .header-link:hover {
-    float: left;
     color: #f1f1ef;
     text-align: center;
     font-weight: bold;
     font-size: 18px;
     text-decoration: none;
-    padding: 25px 35px;
     background-color: #47637e;
+    display: inline-block;
+    vertical-align: middle;
+    align-self: stretch;
+    height: 100%;
 }
 
-.title {
-    font-size: 26px;
+a .column {
+    gewd
 }
+
+.column a {
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+    align-self: stretch;
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    align-self: stretch;
+    height: 100%;
+    text-align: center;
+}
+
+
+.title {
+    float: left;
+    color: #e2e2de;
+    text-align: center;
+    font-weight: bold;
+    font-size: 26px;
+    text-decoration: none;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.title:hover {
+    float: left;
+    color: #f1f1ef;
+    text-align: center;
+    font-weight: bold;
+    font-size: 26px;
+    text-decoration: none;
+    vertical-align: middle;
+    background-color: #47637e;
+    display: inline-block;
+}
+
 
 .header-buttons {
     padding-right:20px;
@@ -96,4 +142,13 @@ textarea {
     color: #f1f1ef;
     font-weight: bold;
     background-color: #384d63;
+}
+
+li .glyphicon {
+    float: right;
+    padding-right: 10px;
+}
+
+.inline {
+    display: inline;
 }

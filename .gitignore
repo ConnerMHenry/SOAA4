@@ -11,4 +11,5 @@
 *.lock
 *.cache
 *.suo
+*.dll
 

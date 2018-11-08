@@ -13,93 +13,84 @@ namespace RestClient {
     public partial class ActionPage {
         
         /// <summary>
-        /// InsertControls control.
+        /// searchLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl InsertControls;
+        protected global::System.Web.UI.WebControls.LinkButton searchLbl;
         
         /// <summary>
-        /// txtFirstName control.
+        /// insertLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFirstName;
+        protected global::System.Web.UI.WebControls.LinkButton insertLbl;
         
         /// <summary>
-        /// txtLastName control.
+        /// updateLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLastName;
+        protected global::System.Web.UI.WebControls.LinkButton updateLbl;
         
         /// <summary>
-        /// txtPhoneNumber control.
+        /// deleteLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPhoneNumber;
+        protected global::System.Web.UI.WebControls.LinkButton deleteLbl;
         
         /// <summary>
-        /// btnInsertCustomer control.
+        /// AddCustomerBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnInsertCustomer;
+        protected global::System.Web.UI.WebControls.LinkButton AddCustomerBtn;
         
         /// <summary>
-        /// TextBox1 control.
+        /// AddCartBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.LinkButton AddCartBtn;
         
         /// <summary>
-        /// TextBox2 control.
+        /// AddOrderBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.WebControls.LinkButton AddOrderBtn;
         
         /// <summary>
-        /// TextBox3 control.
+        /// AddProductBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox3;
+        protected global::System.Web.UI.WebControls.LinkButton AddProductBtn;
         
         /// <summary>
-        /// Button1 control.
+        /// ProductChk control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
-        
-        /// <summary>
-        /// ExecuteBtn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ExecuteBtn;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ProductChk;
     }
 }
