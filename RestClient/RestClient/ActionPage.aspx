@@ -91,20 +91,12 @@
             %>
 
             <script>
-                function loadCustomerTable() {
-                    
-                }
 
-                function removeCustomerTable() {
-
-                }
-
-                function loadProductTable() {
-                    document.getElementById("productChk").style.display = null;
-                }
-
-                function removeProductTable() {
-
+                function loadCustomerTables() {
+                    document.getElementById("customerChk").style.display = null;
+                    var boi = document.getElementById("table-template").cloneNode()
+                        boi.display.style = null;
+                    document.getElementById("tables").innerHtml = boi.innerHtml;
                 }
 
 
@@ -115,34 +107,93 @@
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                     <!-- Add Customer button -->
                     <li>
-                        <asp:LinkButton runat="server" ID="AddCustomerBtn" CssClass="inline bold-boy">
-                            Customer <span class="glyphicon glyphicon-ok"></span>
+                        <asp:LinkButton runat="server" ID="AddCustomerBtn" OnClientClick="loadCustomerTables(); return false;" CssClass="inline bold-boy">
+                            Customer <span id="customerChk" style="display:none;" class="glyphicon glyphicon-ok"></span>
                         </asp:LinkButton> 
                     </li>
                     <!-- Add Cart button -->
                     <li>
                         <asp:LinkButton runat="server" ID="AddCartBtn" CssClass="inline bold-boy">
-                            Cart <span class="glyphicon glyphicon-ok"></span>
+                            Cart <span id="cartChk" style="display:none;"class="glyphicon glyphicon-ok"></span>
                         </asp:LinkButton>
                     </li>
                     <!-- Add Order button -->
                     <li>
                         <asp:LinkButton runat="server" ID="AddOrderBtn" CssClass="inline bold-boy">
-                            Order <span class="glyphicon glyphicon-ok"></span>
+                            Order <span id="orderChk" style="display:none;" class="glyphicon glyphicon-ok"></span>
                         </asp:LinkButton>
                     </li>
                     <li role="separator" class="divider"></li>
                     <!-- Add Product button -->
                     <li>
                         <asp:LinkButton runat="server" ID="AddProductBtn" CssClass="inline bold-boy" OnClientClick="loadProductTable(); return false;">
-                            Product <span id="productChk" style="display:none;" class="glyphicon glyphicon-ok glyphicon-light"></span>
+                            Product <span id="productChk" style="display:none;" class="glyphicon glyphicon-ok"></span>
                         </asp:LinkButton>
                     </li>
                 </ul>
             </div>
 
-        </div>
-        
+            <div id="tables" style="padding: 0px 20px;">
+                <!-- Table row template -->
+                <div id="table-template" style="display:none;" class="row well-lg well-cs-bg"></div>
+
+                <%--<div id="table-template" class="row well-lg well-cs-bg">
+
+                    <!-- First Column - Customer ID -->
+                    <div class="col-md-3">
+                        <div class="col-md-3">
+                            <a class="text-field-desc">Customer ID</a>
+                        </div>
+                        <div class="col-md-9">
+                            <asp:TextBox runat="server" ID="CustID"/>
+                            <br />
+                            <asp:RegularExpressionValidator ID="CustomerIDValidator"
+                                    ControlToValidate="CustID" runat="server"
+                                    ErrorMessage="Only Numbers allowed"
+                                    CssClass="error"
+                                    ValidationExpression="\d+"/>
+                        </div>
+                    </div>
+                    <!-- Second Column - First Name -->
+                    <div class="col-md-3">
+                        <div class="col-md-3">
+                            <a class="text-field-desc">First Name</a>
+                        </div>
+                        <div class="col-md-9">
+                            <asp:TextBox runat="server" ID="FirstName"/>
+                        </div>
+                    </div>
+
+                    <!-- Third Column - Last Name -->
+                    <div class="col-md-3">
+                        <div class="col-md-3">
+                            <a class="text-field-desc">Last Name</a>
+                        </div>
+                        <div class="col-md-9">
+                            <asp:TextBox runat="server" ID="LastName"/>
+                        </div>
+                    </div>
+
+                    <!-- Fourth Column - Phone Number -->
+                    <div class="col-md-3">
+                        <div class="col-md-3">
+                            <a class="text-field-desc">Phone Number</a>
+                        </div>
+                        <div class="col-md-9">
+                            <asp:TextBox runat="server" ID="PhoneNumber" />
+                            <a class="text-field-desc">xxx-xxx-xxxx</a>
+                            <br />
+                            <asp:RegularExpressionValidator ID="CustomerPhoneNumberValidator"
+                                ControlToValidate="PhoneNumber" runat="server"
+                                ErrorMessage="Invalid phone number format"
+                                CssClass="error"
+                                ValidationExpression="(\d{3}-\d{3}-\d{4})?"/>
+                        </div>
+                    </div>
+
+                </div>--%>
+            </div>
+        </div>     
     </div>
 
     <%--<div align="center" id="InsertControls" runat="server">

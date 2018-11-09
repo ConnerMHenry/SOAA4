@@ -162,3 +162,33 @@ button .glyphicon {
 .inline {
     display: inline;
 }
+
+.well-cs-bg {
+    background-color: #d5d3da;
+}
+
+.text-field-desc  {
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    vertical-align: middle;
+    align-self: stretch;
+    height: 100%;
+    text-align: center;
+}
+
+/*#daa5a5*/
+.error {
+    font-weight: bold;
+    color: #cd8787;
+}
+
+.error-well {
+    border-color: #cd8787;
+    background-color: #daa5a5;
+}
+
+.well-cs-bg div {
+    padding-right: 0px;
+    padding-left: 0px;
+}
