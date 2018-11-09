@@ -144,3 +144,4 @@ C:\tmp\SOAA4\RestClient\RestClient\obj\Debug\RestClient.csproj.CoreCompileInputs
 C:\tmp\SOAA4\RestClient\RestClient\obj\Debug\RestClient.csproj.CopyComplete
 C:\tmp\SOAA4\RestClient\RestClient\obj\Debug\RestClient.dll
 C:\tmp\SOAA4\RestClient\RestClient\obj\Debug\RestClient.pdb
+C:\tmp\SOAA4\RestClient\RestClient\obj\Debug\RestClient.csprojAssemblyReference.cache

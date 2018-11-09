@@ -18,17 +18,4 @@
         </div> 
     </nav>
 
-    <div>
-       <div class="row">
-           <a href="#">BUTTON1</a>
-           <a href="#">BUTTON2</a>
-           <a href="#">BUTTON3</a>
-       </div>
-       
-       <div class="row background" id="changeingDiv">
-           Changing content, this content changes depending on which button you press. Without refreshing the page.  
-       </div>
-        
-    </div>
-
 </asp:Content>
