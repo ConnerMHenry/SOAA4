@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ActionPage.aspx.cs" Inherits="RestClient.ActionPage" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-
+ 
     <!-- Parse action -->
     <%
         try
@@ -34,9 +34,6 @@
         }
 
         SetupUI();
-
-
-
     %>
     <!-- NavBar -->
     <nav class="navbar navbar-default">
@@ -92,17 +89,53 @@
                         break;
                 }
             %>
+
+            <script>
+                function loadCustomerTable() {
+                    
+                }
+
+                function removeCustomerTable() {
+
+                }
+
+                function loadProductTable() {
+                    document.getElementById("productChk").style.display = null;
+                }
+
+                function removeProductTable() {
+
+                }
+
+
+            </script>
             <div class="dropdown">
-                <button style="width:150px;" class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Add Table <i class="glyphicon glyphicon-plus"></i>
+                <button style="width:150px;" class="btn btn-default dropdown-toggle bold-boy" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Add Table <i class="glyphicon glyphicon-plus"></i>
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                    <li><asp:LinkButton runat="server" ID="AddCustomerBtn" CssClass="inline" OnClick="AddCustomerBtn_Click">Customer <span class="glyphicon glyphicon-ok"></span></asp:LinkButton> </li>
-                    <li><asp:LinkButton runat="server" ID="AddCartBtn" CssClass="inline" OnClick="AddCartBtn_Click">Cart <span class="glyphicon glyphicon-ok"></span></asp:LinkButton></li>
-                    <li><asp:LinkButton runat="server" ID="AddOrderBtn" CssClass="inline" OnClick="AddOrderBtn_Click">Order <span class="glyphicon glyphicon-ok"></span></asp:LinkButton></li>
-                    <li role="separator" class="divider"></li>
+                    <!-- Add Customer button -->
                     <li>
-                        <asp:LinkButton runat="server" ID="AddProductBtn" CssClass="inline" OnClientClick="return false;" OnClick="AddProductBtn_Click">
-                            Product <span runat="server" id="ProductChk" style="visibility:hidden" class="glyphicon glyphicon-ok"></span>
+                        <asp:LinkButton runat="server" ID="AddCustomerBtn" CssClass="inline bold-boy">
+                            Customer <span class="glyphicon glyphicon-ok"></span>
+                        </asp:LinkButton> 
+                    </li>
+                    <!-- Add Cart button -->
+                    <li>
+                        <asp:LinkButton runat="server" ID="AddCartBtn" CssClass="inline bold-boy">
+                            Cart <span class="glyphicon glyphicon-ok"></span>
+                        </asp:LinkButton>
+                    </li>
+                    <!-- Add Order button -->
+                    <li>
+                        <asp:LinkButton runat="server" ID="AddOrderBtn" CssClass="inline bold-boy">
+                            Order <span class="glyphicon glyphicon-ok"></span>
+                        </asp:LinkButton>
+                    </li>
+                    <li role="separator" class="divider"></li>
+                    <!-- Add Product button -->
+                    <li>
+                        <asp:LinkButton runat="server" ID="AddProductBtn" CssClass="inline bold-boy" OnClientClick="loadProductTable(); return false;">
+                            Product <span id="productChk" style="display:none;" class="glyphicon glyphicon-ok glyphicon-light"></span>
                         </asp:LinkButton>
                     </li>
                 </ul>

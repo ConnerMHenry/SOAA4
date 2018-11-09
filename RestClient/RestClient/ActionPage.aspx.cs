@@ -15,36 +15,7 @@ namespace RestClient
         public Action action;
         protected void Page_Load(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    string actionStr = Request.QueryString["action"];
 
-            //    switch (actionStr)
-            //    {
-            //        case "Delete":
-            //            action = Action.Delete;
-            //            break;
-
-            //        case "Update":
-            //            action = Action.Update;
-            //            break;
-
-            //        case "Insert":
-            //            action = Action.Insert;
-            //            break;
-
-            //        default:
-            //            action = Action.Search;
-            //            break;
-            //    }
-
-            //}
-            //catch
-            //{
-            //    action = Action.Search;
-            //}
-
-            //SetupUI();
         }
 
         protected void searchLbl_Click(object sender, EventArgs e)
@@ -69,25 +40,6 @@ namespace RestClient
 
         public void SetupUI()
         {
-            //switch (action)
-            //{
-            //    case Action.Delete:
-            //        ExecuteBtn.Text = "Delete";
-            //        break;
-
-            //    case Action.Update:
-            //        ExecuteBtn.Text = "Update";
-            //        break;
-
-            //    case Action.Insert:
-                    
-            //        ExecuteBtn.Text = "Insert";
-            //        break;
-
-            //    default:
-            //        ExecuteBtn.Text = "Search";
-            //        break;
-            //}
             
         }
 
@@ -139,26 +91,6 @@ namespace RestClient
             //    Console.WriteLine(exceptional.Message);
             //}
 
-        }
-
-        protected void AddCustomerBtn_Click(object sender, EventArgs e)
-        {
-            //CustomerChk.Visible = true;
-        }
-
-        protected void AddCartBtn_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void AddOrderBtn_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void AddProductBtn_Click(object sender, EventArgs e)
-        {
-            ProductChk.Visible = true;
         }
     }
 }

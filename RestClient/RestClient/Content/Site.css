@@ -149,6 +149,16 @@ li .glyphicon {
     padding-right: 10px;
 }
 
+button .glyphicon {
+    float: right;
+    padding-right: 10px;
+}
+
+.bold-boy {
+    font-weight: 600 !important;
+    text-decoration: none;
+}
+
 .inline {
     display: inline;
 }
