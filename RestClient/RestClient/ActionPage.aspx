@@ -68,6 +68,20 @@
     </nav>
 
     <div style="padding: 0px 20px;">
+        <div id="display-panel">
+            <div class="panel panel-danger">
+                <div class="panel-heading row">
+                    <div class="col-md-6 vcenter" style="padding: 0px;">
+                        You can not have Products included with Customer, Order, or Cart tables.
+                        Would you like to remove the other tables and add Product?
+                    </div>
+                    <div class="btn-group col-md-6 vcenter" style="padding:0px;">
+                        <button class="btn btn-danger">Yes</button><button class="btn btn-danger">No</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div>
             <%
                 switch (action)
@@ -98,6 +112,7 @@
                     $("#cartChk").hide();
                     $("#productChk").hide();
 
+                    // Add Customer Table button
                     $("#addCustomerBtn").click(function () {
                         var check = $("#customerChk");
                         var toggled = check.is(":hidden");
@@ -111,7 +126,7 @@
                                 { id: "lastName", display: "Last Name" },
                                 { id: "phoneNumber", display: "Phone Number", format: "(xxx-xxx-xxxx)"}];
 
-                            makeTable("customerTable", fields);
+                            makeTable("customerTable", "Customer", fields);
                             customerMade = true;
                         }
                     });
@@ -130,7 +145,7 @@
                                 { id: "poNumber", display: "P.O. Number" },
                                 { id: "orderDate", display: "OrderDate", format: "MM-DD-YY"}];
 
-                            makeTable("orderTable", fields);
+                            makeTable("orderTable", "Order", fields);
                         }
                     });
 
@@ -147,7 +162,7 @@
                                 { id: "prodId", display: "Product ID" },
                                 { id: "qauntity", display: "Quantity" }];
 
-                            makeTable("cartTable", fields);
+                            makeTable("cartTable", "Cart", fields);
                         }
                     });
 
@@ -163,7 +178,7 @@
                                 { id: "prodName", display: "Product Name" },
                                 { id: "prodWeight", display: "Product Weight", format: "kg." }];
 
-                                makeTable("productTable", fields);
+                                makeTable("productTable", "Product", fields);
                             }
                             else {
                                 alert("ah fuck i can't believe you've done this")
@@ -172,7 +187,7 @@
                     });
 
                     // Method for making a table
-                    function makeTable(tableName, fields) {
+                    function makeTable(tableName, title, fields) {
                         // Make table....
                          $("#table-template")
                             .clone()
@@ -183,13 +198,16 @@
                         var table = $("#" + tableName);
                         table.fadeOut(0);
 
+                        $("#" + tableName + " #table-title")
+                            .text(title);
+
                         for (field of fields) {
                             // Add column to table...
                             $("#column-template")
                                 .clone()
                                 .removeAttr("style")
                                 .attr("id", field.id)
-                                .appendTo(table);
+                                .appendTo($("#"+tableName+" #table-body"));
 
                             $("#" + field.id + " #desc")
                                 .attr("id", field.id + "Lbl")
@@ -239,98 +257,20 @@
 
             <div id="tables" style="padding: 0px 20px;">
                 <!-- Table row template -->
-                <div id="table-template" style="display:none;" class="row well well-lg"></div>
+                <div id="table-template" style="display:none;">
+                    <h2 id="table-title" style="padding: 5px;">Title</h2>
+                    <div id="table-body" class="row well well-lg"></div>
+                </div>
                 <div id="column-template" class="col-md-3" style="display:none;">
-                        <div class="col-md-3" style="padding: 0px;">
-                            <a class="text-field-desc" id="desc"></a>
-                        </div>
-                        <div class="col-md-9">
-                            <input type="text" id="txt-input">
-                        </div>
+                    <div class="col-md-3" style="padding: 0px;">
+                        <a class="text-field-desc" id="desc"></a>
                     </div>
-
-
-                <%--<div id="table-template" class="row well-lg well-cs-bg">
-
-                    <!-- First Column - Customer ID -->
-                    <div class="col-md-3">
-                        <div class="col-md-3">
-                            <a class="text-field-desc">Customer ID</a>
-                        </div>
-                        <div class="col-md-9">
-                            <asp:TextBox runat="server" ID="CustID"/>
-                            <br />
-                            <asp:RegularExpressionValidator ID="CustomerIDValidator"
-                                    ControlToValidate="CustID" runat="server"
-                                    ErrorMessage="Only Numbers allowed"
-                                    CssClass="error"
-                                    ValidationExpression="\d+"/>
-                        </div>
+                    <div class="col-md-9">
+                        <input type="text" id="txt-input">
                     </div>
-                    <!-- Second Column - First Name -->
-                    <div class="col-md-3">
-                        <div class="col-md-3">
-                            <a class="text-field-desc">First Name</a>
-                        </div>
-                        <div class="col-md-9">
-                            <asp:TextBox runat="server" ID="FirstName"/>
-                        </div>
-                    </div>
+                </div>
 
-                    <!-- Third Column - Last Name -->
-                    <div class="col-md-3">
-                        <div class="col-md-3">
-                            <a class="text-field-desc">Last Name</a>
-                        </div>
-                        <div class="col-md-9">
-                            <asp:TextBox runat="server" ID="LastName"/>
-                        </div>
-                    </div>
-
-                    <!-- Fourth Column - Phone Number -->
-                    <div class="col-md-3">
-                        <div class="col-md-3">
-                            <a class="text-field-desc">Phone Number</a>
-                        </div>
-                        <div class="col-md-9">
-                            <asp:TextBox runat="server" ID="PhoneNumber" />
-                            <a class="text-field-desc">xxx-xxx-xxxx</a>
-                            <br />
-                            <asp:RegularExpressionValidator ID="CustomerPhoneNumberValidator"
-                                ControlToValidate="PhoneNumber" runat="server"
-                                ErrorMessage="Invalid phone number format"
-                                CssClass="error"
-                                ValidationExpression="(\d{3}-\d{3}-\d{4})?"/>
-                        </div>
-                    </div>
-
-                </div>--%>
             </div>
         </div>     
     </div>
-
-        
-
-    <%--<div align="center" id="InsertControls" runat="server">
-        <!-- Customer Fields -->
-        <asp:Label runat="server" CssClass="" Text="First Name" />
-        <asp:TextBox runat="server" id="txtFirstName" CssClass="" Text="" />
-        <asp:Label runat="server" CssClass="" Text="Last Name" />
-        <asp:TextBox runat="server" id="txtLastName" CssClass="" Text="" />
-        <asp:Label runat="server" CssClass="" Text="Phone Number" />
-        <asp:TextBox runat="server" id="txtPhoneNumber" CssClass="" Text="" />
-        <asp:Button runat="server" ID="btnInsertCustomer" OnClick="btnInsertCustomer_Click" CssClass="button-main" Text="Insert Customer" />
-        <!-- Product Fields -->
-        <asp:Label runat="server" CssClass="" Text="First Name" />
-        <asp:TextBox runat="server" id="TextBox1" CssClass="" Text="" />
-        <asp:Label runat="server" CssClass="" Text="Last Name" />
-        <asp:TextBox runat="server" id="TextBox2" CssClass="" Text="" />
-        <asp:Label runat="server" CssClass="" Text="Phone Number" />
-        <asp:TextBox runat="server" id="TextBox3" CssClass="" Text="" />
-        <asp:Button runat="server" ID="Button1" OnClick="btnInsertCustomer_Click" CssClass="button-main" Text="Insert Customer" />
-    </div>
-    <div align="center">
-        <asp:Button runat="server" CssClass="button-norm" Text="Go Back" />
-        <asp:Button runat="server" ID="ExecuteBtn" CssClass="button-main" Text="Search" />
-    </div>--%>
 </asp:Content>

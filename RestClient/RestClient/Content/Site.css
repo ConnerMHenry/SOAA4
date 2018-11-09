@@ -177,6 +177,16 @@ button .glyphicon {
     text-align: center;
 }
 
+.text-field-desc:hover {
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    vertical-align: middle;
+    align-self: stretch;
+    height: 100%;
+    text-align: center;
+}
+
 /*#daa5a5*/
 .error {
     font-weight: bold;
