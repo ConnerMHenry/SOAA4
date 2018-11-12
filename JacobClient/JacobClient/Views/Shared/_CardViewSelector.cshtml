@@ -1,0 +1,166 @@
+﻿@model 
+<div class="dropdown">
+    <button style="width:150px;" class="btn btn-default dropdown-toggle bold-boy" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        Add Table <i class="glyphicon glyphicon-plus"></i>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+        <!-- Add Customer button -->
+        <li>
+            <a id="addCustomerBtn" OnClick="addCustomerButton()" class="inline bold-boy">
+                Customer <span id="customerChk" class="glyphicon glyphicon-ok"></span>
+            </a>
+        </li>
+        <!-- Add Cart button -->
+        <li>
+            <a id="addCartBtn" OnClick="addCartButton()" class="inline bold-boy">
+                Cart <span id="cartChk" style="display:none;" class="glyphicon glyphicon-ok"></span>
+            </a>
+        </li>
+        <!-- Add Order button -->
+        <li>
+            <a id="addOrderBtn" OnClick="addOrderButton()" class="inline bold-boy">
+                Order <span id="orderChk" style="display:none;" class="glyphicon glyphicon-ok"></span>
+            </a>
+        </li>
+        <li role="separator" class="divider"></li>
+        <!-- Add Product button -->
+        <li>
+            <a id="addProductBtn" OnClick="addProductButton()" class="inline bold-boy">
+                Product <span id="productChk" style="display:none;" class="glyphicon glyphicon-ok"></span>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<div id="tables" style="padding: 0px 20px;">
+    <!-- Table row template -->
+    <div id="table-template" style="display:none;">
+        <h2 id="table-title" style="padding: 5px;">Title</h2>
+        <div id="table-body" class="row well well-lg"></div>
+    </div>
+    <div id="column-template" class="col-md-3" style="display:none;">
+        <div class="col-md-3" style="padding: 0px;">
+            <a class="text-field-desc" id="desc"></a>
+        </div>
+        <div class="col-md-9">
+            <input type="text" id="txt-input">
+        </div>
+    </div>
+
+</div>
+
+<script>
+    $(document).ready(function () {
+        $("#customerChk").hide();
+        $("#orderChk").hide();
+        $("#cartChk").hide();
+        $("#productChk").hide();
+    });
+
+    function addCustomerButton() {
+        var check = $("#customerChk");
+        var toggled = check.is(":hidden");
+
+        if (toggled) {
+            check.show();
+
+            var fields = [
+                { id: "customerId", display: "Customer ID" },
+                { id: "firstName", display: "First Name" },
+                { id: "lastName", display: "Last Name" },
+                { id: "phoneNumber", display: "Phone Number", format: "(xxx-xxx-xxxx)" }];
+
+            makeTable("customerTable", "Customer", fields);
+            customerMade = true;
+        }
+    }
+
+    function addOrderButton() {
+        var check = $("#orderChk");
+        var toggled = check.is(":hidden");
+
+        if (toggled) {
+            check.show();
+
+            var fields = [
+                { id: "orderId", display: "Order ID" },
+                { id: "custId", display: "Customer ID" },
+                { id: "poNumber", display: "P.O. Number" },
+                { id: "orderDate", display: "OrderDate", format: "MM-DD-YY" }];
+
+            makeTable("orderTable", "Order", fields);
+        }
+    }
+
+    function addCartButton() {
+        var check = $("#cartChk");
+        var toggled = check.is(":hidden");
+
+        if (toggled) {
+            check.show();
+
+            var fields = [
+                { id: "orderId", display: "Order ID" },
+                { id: "prodId", display: "Product ID" },
+                { id: "qauntity", display: "Quantity" }];
+
+            makeTable("cartTable", "Cart", fields);
+        }
+    }
+
+    function addProductButton() {
+        var isPossible = $("#customerChk").is(":hidden") && $("#orderChk").is(":hidden") && $("#cartChk").is(":hidden");
+        var check = $("#productChk");
+        if (check.is(":hidden")) {
+            if (isPossible) {
+                check.show();
+
+                var fields = [
+                    { id: "prodId", display: "Product ID" },
+                    { id: "prodName", display: "Product Name" },
+                    { id: "prodWeight", display: "Product Weight", format: "kg." }];
+
+                makeTable("productTable", "Product", fields);
+            }
+            else {
+                alert("ah fuck i can't believe you've done this") // in the future, also disable the button as well as this
+            }
+        }
+    }
+
+    // Method for making a table
+    function makeTable(tableName, title, fields) {
+        // Make table....
+        $("#table-template")
+            .clone()
+            .removeAttr("style")
+            .attr("id", tableName)
+            .appendTo($('#tables'));
+        // Fade out table so we can fade back in
+        var table = $("#" + tableName);
+        table.fadeOut(0);
+
+        $("#" + tableName + " #table-title")
+            .text(title);
+
+        for (field of fields) {
+            // Add column to table...
+            $("#column-template")
+                .clone()
+                .removeAttr("style")
+                .attr("id", field.id)
+                .appendTo($("#" + tableName + " #table-body"));
+
+            $("#" + field.id + " #desc")
+                .attr("id", field.id + "Lbl")
+                .text(field.display);
+
+            if (field.format) {
+                $("#" + field.id + " #txt-input").after("<a style=\"padding-left: 15px;\" class=\"text-field-desc\">" + field.format + "</a>")
+            }
+
+        }
+        table.fadeIn(200);
+    }
+
+</script>
