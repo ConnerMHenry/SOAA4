@@ -1,1 +1,28 @@
-﻿
+﻿@using JacobClient.Models
+@model Cart
+<div id="table-body" class="well well-lg">
+    <div class="col-md-3">
+        <div class="col-md-4">
+            @Html.LabelFor(m => m.OrderId, new { @class = "" })
+        </div>
+        <div class="col-md-8">
+            @Html.TextBoxFor(m => m.OrderId, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="col-md-4">
+            @Html.LabelFor(m => m.ProductId, new { @class = "" })
+        </div>
+        <div class="col-md-8">
+            @Html.TextBoxFor(m => m.ProductId, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="col-md-4">
+            @Html.LabelFor(m => m.Quantity, new { @class = "" })
+        </div>
+        <div class="col-md-8">
+            @Html.TextBoxFor(m => m.Quantity, new { @class = "form-control" })
+        </div>
+    </div>
+</div>

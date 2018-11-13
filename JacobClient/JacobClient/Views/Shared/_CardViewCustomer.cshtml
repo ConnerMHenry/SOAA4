@@ -1,1 +1,36 @@
-﻿
+﻿@using JacobClient.Models
+@model Customer
+<div id="table-body">
+    <div class="col-md-2">
+        <div class="col-md-3">
+            @Html.LabelFor(m => m.Id, new { @class = "" })
+        </div>
+        <div class="col-md-9">
+            @Html.TextBoxFor(m => m.Id, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="col-md-4">
+            @Html.LabelFor(m => m.FirstName, new { @class = "" })
+        </div>
+        <div class="col-md-8">
+            @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="col-md-4">
+            @Html.LabelFor(m => m.LastName, new { @class = "" })
+        </div>
+        <div class="col-md-8">
+            @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="col-md-4">
+            @Html.LabelFor(m => m.PhoneNumber, new { @class = "" })
+        </div>
+        <div class="col-md-8">
+            @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control" })
+        </div>
+    </div>
+</div>

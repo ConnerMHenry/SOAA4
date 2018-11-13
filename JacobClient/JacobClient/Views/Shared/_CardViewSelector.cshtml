@@ -1,6 +1,5 @@
-﻿@model 
-<div class="dropdown">
-    <button style="width:150px;" class="btn btn-default dropdown-toggle bold-boy" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+﻿<div class="dropdown row">
+    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
         Add Table <i class="glyphicon glyphicon-plus"></i>
     </button>
     <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
@@ -32,21 +31,8 @@
     </ul>
 </div>
 
-<div id="tables" style="padding: 0px 20px;">
-    <!-- Table row template -->
-    <div id="table-template" style="display:none;">
-        <h2 id="table-title" style="padding: 5px;">Title</h2>
-        <div id="table-body" class="row well well-lg"></div>
-    </div>
-    <div id="column-template" class="col-md-3" style="display:none;">
-        <div class="col-md-3" style="padding: 0px;">
-            <a class="text-field-desc" id="desc"></a>
-        </div>
-        <div class="col-md-9">
-            <input type="text" id="txt-input">
-        </div>
-    </div>
-
+<div id="tables" class="row">
+    
 </div>
 
 <script>
@@ -58,74 +44,40 @@
     });
 
     function addCustomerButton() {
-        var check = $("#customerChk");
-        var toggled = check.is(":hidden");
-
-        if (toggled) {
-            check.show();
-
-            var fields = [
-                { id: "customerId", display: "Customer ID" },
-                { id: "firstName", display: "First Name" },
-                { id: "lastName", display: "Last Name" },
-                { id: "phoneNumber", display: "Phone Number", format: "(xxx-xxx-xxxx)" }];
-
-            makeTable("customerTable", "Customer", fields);
-            customerMade = true;
-        }
+        $.ajax({
+            url: '@Url.Action("GetTestCustomer", "Home")',
+            success: function (data) {
+                $('#tables').html($('#tables').html() + data);
+            }
+        });
     }
 
     function addOrderButton() {
-        var check = $("#orderChk");
-        var toggled = check.is(":hidden");
-
-        if (toggled) {
-            check.show();
-
-            var fields = [
-                { id: "orderId", display: "Order ID" },
-                { id: "custId", display: "Customer ID" },
-                { id: "poNumber", display: "P.O. Number" },
-                { id: "orderDate", display: "OrderDate", format: "MM-DD-YY" }];
-
-            makeTable("orderTable", "Order", fields);
-        }
+        $.ajax({
+            url: '@Url.Action("GetTestOrder", "Home")',
+            success: function (data) {
+                $('#tables').html($('#tables').html() + data);
+            }
+        });
     }
 
     function addCartButton() {
-        var check = $("#cartChk");
-        var toggled = check.is(":hidden");
-
-        if (toggled) {
-            check.show();
-
-            var fields = [
-                { id: "orderId", display: "Order ID" },
-                { id: "prodId", display: "Product ID" },
-                { id: "qauntity", display: "Quantity" }];
-
-            makeTable("cartTable", "Cart", fields);
-        }
+        $.ajax({
+            url: '@Url.Action("GetTestCart", "Home")',
+            success: function (data) {
+                $('#tables').html($('#tables').html() + data);
+            }
+        });
     }
 
+    //https://stackoverflow.com/questions/6119098/how-to-call-controller-actions-using-jquery-in-asp-net-mvc
     function addProductButton() {
-        var isPossible = $("#customerChk").is(":hidden") && $("#orderChk").is(":hidden") && $("#cartChk").is(":hidden");
-        var check = $("#productChk");
-        if (check.is(":hidden")) {
-            if (isPossible) {
-                check.show();
-
-                var fields = [
-                    { id: "prodId", display: "Product ID" },
-                    { id: "prodName", display: "Product Name" },
-                    { id: "prodWeight", display: "Product Weight", format: "kg." }];
-
-                makeTable("productTable", "Product", fields);
+        $.ajax({
+            url: '@Url.Action("GetTestProduct", "Home")',
+            success: function (data) {
+                $('#tables').html($('#tables').html() + data);
             }
-            else {
-                alert("ah fuck i can't believe you've done this") // in the future, also disable the button as well as this
-            }
-        }
+        });
     }
 
     // Method for making a table

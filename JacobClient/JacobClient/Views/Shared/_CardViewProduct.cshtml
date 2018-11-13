@@ -1,27 +1,27 @@
 ﻿@using JacobClient.Models
 @model Product
-<div id="table-body" class="row well well-lg">
-    <div id="prodId" class="col-md-3">
-        <div class="col-md-3" style="padding: 0px;">
-            <a class="text-field-desc" id="prodIdLbl">Product ID</a>
+<div id="table-body">
+    <div class="col-md-3">
+        <div class="col-md-3">
+            @Html.LabelFor(m => m.Id, new { @class = "" })
         </div>
         <div class="col-md-9">
-            <input type="text" id="txt-input">
+            @Html.TextBoxFor(m => m.Id, new { @class = "form-control" })
         </div>
     </div>
-    <div id="prodName" class="col-md-3">
-        <div class="col-md-3" style="padding: 0px;">
-            <a class="text-field-desc" id="prodNameLbl">Product Name</a>
+    <div class="col-md-3">
+        <div class="col-md-4">
+            @Html.LabelFor(m => m.Name, new { @class = "" })
         </div>
-        <div class="col-md-9">
-            <input type="text" id="txt-input">
+        <div class="col-md-8">
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
         </div>
     </div>
-    <div id="prodWeight" class="col-md-3">
-        <div class="col-md-3" style="padding: 0px;">
-            @Html.LabelFor(m => m.Weight, new { @class = "form-control" })
+    <div class="col-md-3">
+        <div class="col-md-4">
+            @Html.LabelFor(m => m.Weight, new { @class = "" })
         </div>
-        <div class="col-md-9">
+        <div class="col-md-8">
             @Html.TextBoxFor(m => m.Weight, new { @class = "form-control" })
         </div>
     </div>
