@@ -11,6 +11,6 @@ namespace JacobClient.Models
         public int CustomerId { get; set; }
         public string PONumber { get; set; }
         public DateTime OrderDate { get; set; }
-
+        public bool IsControlEnabled { get; set; } = true;
     }
 }

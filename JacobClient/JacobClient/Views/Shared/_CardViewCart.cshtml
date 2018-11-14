@@ -1,28 +1,35 @@
 ﻿@using JacobClient.Models
 @model Cart
-<div id="table-body" class="well well-lg">
-    <div class="col-md-3">
-        <div class="col-md-4">
-            @Html.LabelFor(m => m.OrderId, new { @class = "" })
-        </div>
-        <div class="col-md-8">
-            @Html.TextBoxFor(m => m.OrderId, new { @class = "form-control" })
-        </div>
+<div id="tableCart" class="well">
+    <div class="row">
+        <h3><strong>Cart</strong></h3>
     </div>
-    <div class="col-md-3">
-        <div class="col-md-4">
-            @Html.LabelFor(m => m.ProductId, new { @class = "" })
+    <fieldset @Html.Raw(Model.IsControlEnabled ? "" : "disabled")>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.OrderId, new { @class = "" })
+                </div>
+                <div class="col-md-8">
+                    @Html.TextBoxFor(m => m.OrderId, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.ProductId, new { @class = "" })
+                </div>
+                <div class="col-md-8">
+                    @Html.TextBoxFor(m => m.ProductId, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.Quantity, new { @class = "" })
+                </div>
+                <div class="col-md-8">
+                    @Html.TextBoxFor(m => m.Quantity, new { @class = "form-control" })
+                </div>
+            </div>
         </div>
-        <div class="col-md-8">
-            @Html.TextBoxFor(m => m.ProductId, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="col-md-4">
-            @Html.LabelFor(m => m.Quantity, new { @class = "" })
-        </div>
-        <div class="col-md-8">
-            @Html.TextBoxFor(m => m.Quantity, new { @class = "form-control" })
-        </div>
-    </div>
+    </fieldset>
 </div>

@@ -12,5 +12,6 @@ namespace JacobClient.Models
         public float Price { get; set; }
         public float Weight { get; set; }
         public bool IsInStock { get; set; }
+        public bool IsControlEnabled { get; set; } = true;
     }
 }

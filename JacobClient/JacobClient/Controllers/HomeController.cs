@@ -47,7 +47,8 @@ namespace JacobClient.Controllers
                 Name = "Water balloon",
                 Price = 1.25f,
                 Weight = 2f,
-                IsInStock = true
+                IsInStock = true,
+                IsControlEnabled = false // use this field when doing SELECTS
             };
             return PartialView("_CardViewProduct", product);
         }
