@@ -276,3 +276,4 @@ C:\_temp\SOAA4\JacobClient\JacobClient\obj\Debug\JacobClient.csproj.CoreCompileI
 C:\_temp\SOAA4\JacobClient\JacobClient\obj\Debug\JacobClient.csproj.CopyComplete
 C:\_temp\SOAA4\JacobClient\JacobClient\obj\Debug\JacobClient.dll
 C:\_temp\SOAA4\JacobClient\JacobClient\obj\Debug\JacobClient.pdb
+C:\_temp\SOAA4\JacobClient\JacobClient\obj\Debug\JacobClient.csprojAssemblyReference.cache

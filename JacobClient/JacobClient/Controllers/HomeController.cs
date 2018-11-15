@@ -66,33 +66,10 @@ namespace JacobClient.Controllers
             return PartialView("_CardViewOrder", order);
         }
 
-        [HttpGet]
-        public ActionResult GetTestCustomer()
-        {
-            Customer customer = new Customer
-            {
-                FirstName = "Jacob",
-                LastName = "Huras",
-                PhoneNumber = "226226575",
-                Id = 1
-            };
-            return PartialView("_CardViewCustomer", customer);
-        }
+        
 
         [HttpGet]
         public ActionResult GetTestCart()
-        {
-            Cart cart = new Cart
-            {
-                OrderId = 54,
-                ProductId = 12,
-                Quantity = 2
-            };
-            return PartialView("_CardViewCart", cart);
-        }
-
-        [HttpPost]
-        public ActionResult InsertUpdateCustomer(Customer customer)
         {
             Cart cart = new Cart
             {

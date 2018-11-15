@@ -1,0 +1,40 @@
+﻿@using JacobClient.Models
+@model ProductCollection
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Weight</th>
+            <th scope="col">Is In Stock</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Product product in Model.Products)
+        {
+        <tr id="product-@product.Id">
+            <th scope="row">@product.Id</th>
+            <td>@product.Name</td>
+            <td>@product.Price</td>
+            <td>@product.Weight</td>
+            <td>@product.IsInStock</td>
+            <td><button onclick="deleteProduct(@product.Id)" class="btn btn-danger">Delete</button></td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+    function deleteProduct(deleteId) {
+        $.ajax({
+            url: '@Url.Action("Delete", "Product")/' + deleteId,
+            method: "POST",
+            success: function (data) {
+                $('#product-' + deleteId).remove();
+            }
+        });
+    }
+</script>

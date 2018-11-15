@@ -31,11 +31,13 @@
     </ul>
 </div>
 
+<a id="addProductBtn" OnClick="getTestList()">
+    TEST rows
+</a>
+
 <div>
     <div id="tables" class="row">
-
     </div>
-    <button onclick="submit()">Submit</button>
 </div>
 
 
@@ -44,89 +46,66 @@
 
     });
 
-    function submit() {
-        debugger
-        if ($('form')[0].checkValidity()) {
-            $('input[type=submit]', this).attr('disabled', 'disabled');
-        }
-    }
-
-    //$('form').submit(function () {
-    //    debugger
-    //    if ($('form').valid()) {
-    //        $('input[type=submit]', this).attr('disabled', 'disabled');
-    //    }
-    //});
-
     function addCustomerButton() {
-        if (!($('#addProductBtn').hasClass('selected-item'))) {
-            if ($('#tableCustomer').length) {
-                $('#tableCustomer').remove();
-                $('#addCustomerBtn').removeClass('selected-item');
-            } else {
-                $.ajax({
-                    url: '@Url.Action("GetTestCustomer", "Home")',
-                    success: function (data) {
-                        $('#tables').html($('#tables').html() + data);
-                        $('#addCustomerBtn').addClass('selected-item');
-                    }
-                });
+        $.ajax({
+            url: '@Url.Action("GetBlankCustomer", "Customer")',
+            success: function (data) {
+                $('#tables').html(data);
+                $('#addProductBtn').removeClass('selected-item');
+                $('#addOrderBtn').removeClass('selected-item');
+                $('#addCustomerBtn').addClass('selected-item');
+                $('#addCartBtn').removeClass('selected-item');
             }
-        }
+        });
     }
 
     function addOrderButton() {
-        if (!($('#addProductBtn').hasClass('selected-item'))) {
-            if ($('#tableOrder').length) {
-                $('#tableOrder').remove();
-                $('#addOrderBtn').removeClass('selected-item');
-            } else {
-                $.ajax({
-                    url: '@Url.Action("GetTestOrder", "Home")',
-                    success: function (data) {
-                        $('#tables').html($('#tables').html() + data);
-                        $('#addOrderBtn').addClass('selected-item');
-                    }
-                });
+        $.ajax({
+            url: '@Url.Action("GetTestOrder", "Home")',
+            success: function (data) {
+                $('#tables').html(data);
+                $('#addProductBtn').removeClass('selected-item');
+                $('#addOrderBtn').addClass('selected-item');
+                $('#addCustomerBtn').removeClass('selected-item');
+                $('#addCartBtn').removeClass('selected-item');
             }
-        }
+        });
     }
 
     function addCartButton() {
-        if (!($('#addProductBtn').hasClass('selected-item'))) {
-            if ($('#tableCart').length) {
-                $('#tableCart').remove();
-                $('#addCartBtn').removeClass('selected-item');
-            } else {
-                $.ajax({
-                    url: '@Url.Action("GetTestCart", "Home")',
-                    success: function (data) {
-                        $('#tables').html($('#tables').html() + data);
-                        $('#addCartBtn').addClass('selected-item');
-                    }
-                });
+        $.ajax({
+            url: '@Url.Action("GetTestCart", "Home")',
+            success: function (data) {
+                $('#tables').html(data);
+                $('#addProductBtn').removeClass('selected-item');
+                $('#addOrderBtn').removeClass('selected-item');
+                $('#addCustomerBtn').removeClass('selected-item');
+                $('#addCartBtn').addClass('selected-item');
             }
-        }
+        });
     }
 
     //https://stackoverflow.com/questions/6119098/how-to-call-controller-actions-using-jquery-in-asp-net-mvc
     function addProductButton() {
-        if (!($('#addCartBtn').hasClass('selected-item') ||
-            $('#addOrderBtn').hasClass('selected-item') ||
-            $('#addCustomerBtn').hasClass('selected-item'))) {
-            if ($('#tableProduct').length) {
-                $('#tableProduct').remove();
-                $('#addProductBtn').removeClass('selected-item');
-            } else {
-                $.ajax({
-                    url: '@Url.Action("GetTestProduct", "Home")',
-                    success: function (data) {
-                        $('#tables').html($('#tables').html() + data);
-                        $('#addProductBtn').addClass('selected-item');
-                    }
-                });
+        $.ajax({
+            url: '@Url.Action("GetTestProduct", "Home")',
+            success: function (data) {
+                $('#tables').html(data);
+                $('#addProductBtn').addClass('selected-item');
+                $('#addOrderBtn').removeClass('selected-item');
+                $('#addCustomerBtn').removeClass('selected-item');
+                $('#addCartBtn').removeClass('selected-item');
             }
-        }
+        });
+    }
+
+    function getTestList() {
+        $.ajax({
+            url: '@Url.Action("Details", "Product", new { id = 0 })',
+            success: function (data) {
+                $('#tables').html(data);
+            }
+        });
     }
 
 </script>

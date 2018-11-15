@@ -13,10 +13,17 @@ namespace JacobClient.Controllers
         {
             return View();
         }
+
         [HttpPost]
-        public ActionResult Details(int id)
+        public ActionResult Details(Customer customer)
         {
             return View();
+        }
+
+        [HttpGet]
+        public ActionResult GetBlankCustomer()
+        {
+            return PartialView("_CardViewCustomer", new Customer());
         }
 
         [HttpPost]

@@ -14,10 +14,42 @@ namespace JacobClient.Controllers
             return View();
         }
 
-        [HttpPost]
+        [HttpGet]
         public ActionResult Details(int id)
         {
-            return View();
+            if (id == 0)
+            {
+                var products = new List<Product>();
+                products.Add(new Product
+                {
+                    Id = 1,
+                    Name = "Test p1",
+                    Price = 2.56f,
+                    Weight = 3,
+                    IsInStock = true
+                });
+                products.Add(new Product
+                {
+                    Id = 2,
+                    Name = "Test p2",
+                    Price = 5.56f,
+                    Weight = 7,
+                    IsInStock = true
+                });
+                products.Add(new Product
+                {
+                    Id = 3,
+                    Name = "Test p3",
+                    Price = 0.56f,
+                    Weight = 1,
+                    IsInStock = true
+                });
+                return PartialView("_ProductList", new ProductCollection { Products = products });
+            }
+            else
+            {
+                return View();
+            }
         }
 
         [HttpPost]
@@ -39,13 +71,11 @@ namespace JacobClient.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
+                return Json(new { success = true, responseText = "Success!" }, JsonRequestBehavior.AllowGet);
             }
             catch
             {
-                return View();
+                return Json(new { success = false, responseText = "Failure!" }, JsonRequestBehavior.AllowGet);
             }
         }
     }

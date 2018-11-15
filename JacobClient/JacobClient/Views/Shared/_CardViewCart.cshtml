@@ -4,32 +4,58 @@
     <div class="row">
         <h3><strong>Cart</strong></h3>
     </div>
-    <fieldset @Html.Raw(Model.IsControlEnabled ? "" : "disabled")>
-        <div class="row">
-            <div class="col-md-3">
-                <div class="col-md-4">
-                    @Html.LabelFor(m => m.OrderId, new { @class = "" })
+    @using (Html.BeginForm("InsertUpdate", "Cart", FormMethod.Post, new { id = "insertUpdateCartForm" }))
+    {
+        @Html.ValidationSummary(true)
+        <fieldset @Html.Raw(Model.IsControlEnabled ? "" : "disabled")>
+            <div class="row">
+                <div class="row">
+                    <div class="col-md-2">
+                        @Html.LabelFor(m => m.OrderId, new { @class = "" })
+                    </div>
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(m => m.OrderId, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.OrderId)
+                    </div>
                 </div>
-                <div class="col-md-8">
-                    @Html.TextBoxFor(m => m.OrderId, new { @class = "form-control" })
+                <div class="row">
+                    <div class="col-md-2">
+                        @Html.LabelFor(m => m.ProductId, new { @class = "" })
+                    </div>
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(m => m.ProductId, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.ProductId)
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        @Html.LabelFor(m => m.Quantity, new { @class = "" })
+                    </div>
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(m => m.Quantity, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Quantity)
+                    </div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="col-md-4">
-                    @Html.LabelFor(m => m.ProductId, new { @class = "" })
-                </div>
-                <div class="col-md-8">
-                    @Html.TextBoxFor(m => m.ProductId, new { @class = "form-control" })
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="col-md-4">
-                    @Html.LabelFor(m => m.Quantity, new { @class = "" })
-                </div>
-                <div class="col-md-8">
-                    @Html.TextBoxFor(m => m.Quantity, new { @class = "form-control" })
-                </div>
-            </div>
-        </div>
-    </fieldset>
+            <button onclick="submitForm()" class="btn btn-success pull-right">Submit</button>
+        </fieldset>
+    }
 </div>
+
+<script>
+    $(document).ready(function () {
+        var form = $('#insertUpdateCartForm');
+        form.removeData('validator');
+        form.removeData('unobtrusiveValidation');
+        $.validator.unobtrusive.parse(form);
+    });
+
+    function submitForm() {
+        debugger
+        var form = $('#insertUpdateCartForm');
+        form.validate();
+        if (form.valid()) {
+            form.submit();
+        }
+    }
+</script>

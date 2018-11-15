@@ -4,13 +4,13 @@
     <div class="row">
         <h3><strong>Customer</strong></h3>
     </div>
-    @using (Html.BeginForm("DoInsert", "Home"))
+    @using (Html.BeginForm("InsertUpdate", "Customer", FormMethod.Post, new { id = "insertUpdateCustomerForm" }))
     {
         @Html.ValidationSummary(true)
         <fieldset @Html.Raw(Model.IsControlEnabled ? "" : "disabled")>
             <div class="row">
-                <div class="col-md-3">
-                    <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md-2">
                         @Html.LabelFor(m => m.Id, new { @class = "" })
                     </div>
                     <div class="col-md-8">
@@ -18,8 +18,8 @@
                         @Html.ValidationMessageFor(m => m.Id)
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md-2">
                         @Html.LabelFor(m => m.FirstName, new { @class = "" })
                     </div>
                     <div class="col-md-8">
@@ -27,8 +27,8 @@
                         @Html.ValidationMessageFor(m => m.FirstName)
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md-2">
                         @Html.LabelFor(m => m.LastName, new { @class = "" })
                     </div>
                     <div class="col-md-8">
@@ -36,8 +36,8 @@
                         @Html.ValidationMessageFor(m => m.LastName)
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md-2">
                         @Html.LabelFor(m => m.PhoneNumber, "Phone", new { @class = "" })
                     </div>
                     <div class="col-md-8">
@@ -46,7 +46,25 @@
                     </div>
                 </div>
             </div>
-            <input type="submit" value="Create" />
+            <button onclick="submitForm()" class="btn btn-success pull-right">Submit</button>
         </fieldset>
     }
 </div>
+
+<script>
+    $(document).ready(function () {
+        var form = $('#insertUpdateCustomerForm');
+        form.removeData('validator');
+        form.removeData('unobtrusiveValidation');
+        $.validator.unobtrusive.parse(form);
+    });
+
+    function submitForm() {
+        debugger
+        var form = $('#insertUpdateCustomerForm');
+        form.validate();
+        if (form.valid()) {
+            form.submit();
+        }
+    }
+</script>

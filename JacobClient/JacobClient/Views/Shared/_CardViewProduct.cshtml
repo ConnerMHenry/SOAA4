@@ -4,32 +4,76 @@
     <div class="row">
         <h3><strong>Product</strong></h3>
     </div>
-    <fieldset @Html.Raw(Model.IsControlEnabled ? "" : "disabled")>
-        <div class="row">
-            <div class="col-md-3">
-                <div class="col-md-4">
-                    @Html.LabelFor(m => m.Id, new { @class = "" })
+    @using (Html.BeginForm("InsertUpdate", "Product", FormMethod.Post, new { id = "insertUpdateProductForm" }))
+    {
+        @Html.ValidationSummary(true)
+        <fieldset @Html.Raw(Model.IsControlEnabled ? "" : "disabled")>
+            <div class="row">
+                <div class="row">
+                    <div class="col-md-2">
+                        @Html.LabelFor(m => m.Id, new { @class = "" })
+                    </div>
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(m => m.Id, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Id)
+                    </div>
                 </div>
-                <div class="col-md-8">
-                    @Html.TextBoxFor(m => m.Id, new { @class = "form-control" })
+                <div class="row">
+                    <div class="col-md-2">
+                        @Html.LabelFor(m => m.Name, new { @class = "" })
+                    </div>
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Name)
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        @Html.LabelFor(m => m.Price, new { @class = "" })
+                    </div>
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(m => m.Price, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Price)
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        @Html.LabelFor(m => m.Weight, new { @class = "" })
+                    </div>
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(m => m.Weight, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Weight)
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        @Html.LabelFor(m => m.IsInStock, new { @class = "" })
+                    </div>
+                    <div class="col-md-8">
+                        @Html.CheckBoxFor(m => m.IsInStock, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.IsInStock)
+                    </div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="col-md-4">
-                    @Html.LabelFor(m => m.Name, new { @class = "" })
-                </div>
-                <div class="col-md-8">
-                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="col-md-4">
-                    @Html.LabelFor(m => m.Weight, new { @class = "" })
-                </div>
-                <div class="col-md-8">
-                    @Html.TextBoxFor(m => m.Weight, new { @class = "form-control" })
-                </div>
-            </div>
-        </div>
-    </fieldset>
+            <button onclick="submitForm()" class="btn btn-success pull-right">Submit</button>
+        </fieldset>
+    }
 </div>
+
+<script>
+    $(document).ready(function () {
+        var form = $('#insertUpdateProductForm');
+        form.removeData('validator');
+        form.removeData('unobtrusiveValidation');
+        $.validator.unobtrusive.parse(form);
+    });
+
+    function submitForm() {
+        debugger
+        var form = $('#insertUpdateProductForm');
+        form.validate();
+        if (form.valid()) {
+            form.submit();
+        }
+    }
+</script>
