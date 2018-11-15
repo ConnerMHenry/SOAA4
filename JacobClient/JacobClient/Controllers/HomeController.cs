@@ -91,8 +91,8 @@ namespace JacobClient.Controllers
             return PartialView("_CardViewCart", cart);
         }
 
-        [HttpGet]
-        public ActionResult DoSearch()
+        [HttpPost]
+        public ActionResult InsertUpdateCustomer(Customer customer)
         {
             Cart cart = new Cart
             {
