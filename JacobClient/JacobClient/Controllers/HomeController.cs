@@ -90,5 +90,17 @@ namespace JacobClient.Controllers
             };
             return PartialView("_CardViewCart", cart);
         }
+
+        [HttpGet]
+        public ActionResult DoSearch()
+        {
+            Cart cart = new Cart
+            {
+                OrderId = 54,
+                ProductId = 12,
+                Quantity = 2
+            };
+            return PartialView("_CardViewCart", cart);
+        }
     }
 }

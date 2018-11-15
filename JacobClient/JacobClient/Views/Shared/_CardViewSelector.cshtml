@@ -31,14 +31,32 @@
     </ul>
 </div>
 
-<div id="tables" class="row">
-    
+<div>
+    <div id="tables" class="row">
+
+    </div>
+    <button onclick="submit()">Submit</button>
 </div>
+
 
 <script>
     $(document).ready(function () {
 
     });
+
+    function submit() {
+        debugger
+        if ($('form')[0].checkValidity()) {
+            $('input[type=submit]', this).attr('disabled', 'disabled');
+        }
+    }
+
+    //$('form').submit(function () {
+    //    debugger
+    //    if ($('form').valid()) {
+    //        $('input[type=submit]', this).attr('disabled', 'disabled');
+    //    }
+    //});
 
     function addCustomerButton() {
         if (!($('#addProductBtn').hasClass('selected-item'))) {
