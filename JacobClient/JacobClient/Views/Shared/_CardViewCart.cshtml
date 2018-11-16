@@ -35,9 +35,9 @@
                         @Html.TextBoxFor(m => m.Quantity, new { @class = "form-control" })
                         @Html.ValidationMessageFor(m => m.Quantity)
                     </div>
+                    <button onclick="submitForm()" class="btn btn-success pull-right">Submit</button>
                 </div>
             </div>
-            <button onclick="submitForm()" class="btn btn-success pull-right">Submit</button>
         </fieldset>
     }
 </div>
@@ -51,7 +51,6 @@
     });
 
     function submitForm() {
-        debugger
         var form = $('#insertUpdateCartForm');
         form.validate();
         if (form.valid()) {

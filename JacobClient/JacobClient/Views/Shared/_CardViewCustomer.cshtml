@@ -44,9 +44,9 @@
                         @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control" })
                         @Html.ValidationMessageFor(m => m.PhoneNumber)
                     </div>
+                    <button onclick="submitForm()" class="btn btn-success pull-right">Submit</button>
                 </div>
             </div>
-            <button onclick="submitForm()" class="btn btn-success pull-right">Submit</button>
         </fieldset>
     }
 </div>
@@ -60,7 +60,6 @@
     });
 
     function submitForm() {
-        debugger
         var form = $('#insertUpdateCustomerForm');
         form.validate();
         if (form.valid()) {

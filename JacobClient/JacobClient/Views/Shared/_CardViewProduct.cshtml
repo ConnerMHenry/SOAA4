@@ -53,9 +53,9 @@
                         @Html.CheckBoxFor(m => m.IsInStock, new { @class = "form-control" })
                         @Html.ValidationMessageFor(m => m.IsInStock)
                     </div>
+                    <button onclick="submitForm()" class="btn btn-success pull-right">Submit</button>
                 </div>
             </div>
-            <button onclick="submitForm()" class="btn btn-success pull-right">Submit</button>
         </fieldset>
     }
 </div>
@@ -69,7 +69,6 @@
     });
 
     function submitForm() {
-        debugger
         var form = $('#insertUpdateProductForm');
         form.validate();
         if (form.valid()) {
