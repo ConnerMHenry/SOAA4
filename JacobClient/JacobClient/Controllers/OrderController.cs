@@ -16,13 +16,34 @@ namespace JacobClient.Controllers
         }
 
         [HttpPost]
-        public ActionResult Details(int id)
+        public ActionResult Details(Order order)
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult InsertUpdate(Order order)
+        public ActionResult DetailsWithCustomer(Order order, Customer customer)
+        {
+            //return partial view with rows of records
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Insert(Order order)
+        {
+            try
+            {
+                // TODO: Add insert logic here
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+        [HttpPost]
+        public ActionResult Update(Order order)
         {
             try
             {

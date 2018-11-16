@@ -21,7 +21,6 @@
                 Order
             </a>
         </li>
-        <li role="separator" class="divider"></li>
         <!-- Add Product button -->
         <li>
             <a id="addProductBtn" OnClick="addProductButton()">
@@ -47,56 +46,84 @@
     });
 
     function addCustomerButton() {
-        $.ajax({
-            url: '@Url.Action("GetBlankCustomer", "Customer")',
-            success: function (data) {
-                $('#tables').html(data);
-                $('#addProductBtn').removeClass('selected-item');
-                $('#addOrderBtn').removeClass('selected-item');
-                $('#addCustomerBtn').addClass('selected-item');
-                $('#addCartBtn').removeClass('selected-item');
+            if ($('#tableCustomer').length) {
+                $('#tableCustomer').remove();
+                $('#addCustomerBtn').removeClass('selected-item');
+            } else {
+                $.ajax({
+                    url: '@Url.Action("GetBlankCustomer", "Customer")',
+                    success: function (data) {
+                        if ($('#tableOrder').length) {
+                            $('#tables').html($('#tables').html() + data);
+                        } else {
+                            $('#tables').html(data);
+                            $('#addProductBtn').removeClass('selected-item');
+                            $('#addOrderBtn').removeClass('selected-item');
+                            $('#addCartBtn').removeClass('selected-item');
+                        }
+                        $('#addCustomerBtn').addClass('selected-item');
+                    }
+                });
             }
-        });
     }
 
     function addOrderButton() {
-        $.ajax({
-            url: '@Url.Action("GetTestOrder", "Home")',
-            success: function (data) {
-                $('#tables').html(data);
-                $('#addProductBtn').removeClass('selected-item');
-                $('#addOrderBtn').addClass('selected-item');
-                $('#addCustomerBtn').removeClass('selected-item');
-                $('#addCartBtn').removeClass('selected-item');
+            if ($('#tableOrder').length) {
+                $('#tableOrder').remove();
+                $('#addOrderBtn').removeClass('selected-item');
+            } else {
+                $.ajax({
+                    url: '@Url.Action("GetTestOrder", "Home")',
+                    success: function (data) {
+                        if ($('#tableCustomer').length) {
+                            $('#tables').html($('#tables').html() + data);
+                        } else {
+                            $('#tables').html(data);
+                            $('#addProductBtn').removeClass('selected-item');
+                            $('#addCustomerBtn').removeClass('selected-item');
+                            $('#addCartBtn').removeClass('selected-item');
+                        }
+                        $('#addOrderBtn').addClass('selected-item');
+                    }
+                });
             }
-        });
     }
 
     function addCartButton() {
-        $.ajax({
-            url: '@Url.Action("GetTestCart", "Home")',
-            success: function (data) {
-                $('#tables').html(data);
-                $('#addProductBtn').removeClass('selected-item');
-                $('#addOrderBtn').removeClass('selected-item');
-                $('#addCustomerBtn').removeClass('selected-item');
-                $('#addCartBtn').addClass('selected-item');
+            if ($('#tableCart').length) {
+                $('#tableCart').remove();
+                $('#addCartBtn').removeClass('selected-item');
+            } else {
+                $.ajax({
+                    url: '@Url.Action("GetTestCart", "Home")',
+                    success: function (data) {
+                        $('#tables').html(data);
+                        $('#addProductBtn').removeClass('selected-item');
+                        $('#addOrderBtn').removeClass('selected-item');
+                        $('#addCustomerBtn').removeClass('selected-item');
+                        $('#addCartBtn').addClass('selected-item');
+                    }
+                });
             }
-        });
     }
 
     //https://stackoverflow.com/questions/6119098/how-to-call-controller-actions-using-jquery-in-asp-net-mvc
     function addProductButton() {
-        $.ajax({
-            url: '@Url.Action("GetTestProduct", "Home")',
-            success: function (data) {
-                $('#tables').html(data);
-                $('#addProductBtn').addClass('selected-item');
-                $('#addOrderBtn').removeClass('selected-item');
-                $('#addCustomerBtn').removeClass('selected-item');
-                $('#addCartBtn').removeClass('selected-item');
+            if ($('#tableProduct').length) {
+                $('#tableProduct').remove();
+                $('#addProductBtn').removeClass('selected-item');
+            } else {
+                $.ajax({
+                    url: '@Url.Action("GetTestProduct", "Home")',
+                    success: function (data) {
+                        $('#tables').html(data);
+                        $('#addProductBtn').addClass('selected-item');
+                        $('#addOrderBtn').removeClass('selected-item');
+                        $('#addCustomerBtn').removeClass('selected-item');
+                        $('#addCartBtn').removeClass('selected-item');
+                    }
+                });
             }
-        });
     }
 
     function getTestList() {

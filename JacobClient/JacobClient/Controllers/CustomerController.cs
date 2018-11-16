@@ -27,11 +27,25 @@ namespace JacobClient.Controllers
         }
 
         [HttpPost]
-        public ActionResult InsertUpdate(Customer customer)
+        public ActionResult Insert(Customer customer)
         {
             try
             {
                 // TODO: Add insert logic here
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+        [HttpPost]
+        public ActionResult Update(Customer customer)
+        {
+            try
+            {
+                // TODO: Add update logic here
 
                 return RedirectToAction("Index");
             }

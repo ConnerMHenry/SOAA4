@@ -52,8 +52,28 @@ namespace JacobClient.Controllers
             }
         }
 
+        [HttpGet]
+        public ActionResult Details(Product product)
+        {
+            return View();
+        }
+
         [HttpPost]
-        public ActionResult InsertUpdate(Product product)
+        public ActionResult Insert(Product product)
+        {
+            try
+            {
+                // TODO: Add insert logic here
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+        [HttpPost]
+        public ActionResult Update(Product product)
         {
             try
             {
