@@ -11,7 +11,9 @@ namespace RestServices.Controllers
     public class CustomerController : ApiController
     {
         private const string BaseRoute = WebApiConfig.BaseEndpoint + "Customer/";
+        CrazyMelvinDAL dal = new CrazyMelvinDAL();
 
+        [HttpGet]
         [Route(BaseRoute)]
 		public IEnumerable<Customer> GetAllCustomers()
 		{
@@ -27,12 +29,11 @@ namespace RestServices.Controllers
         }
 
         [HttpPost]
-        [Route(BaseRoute + "add")]
+        [Route(BaseRoute)]
 		public IHttpActionResult InsertCustomer([FromBody] Customer newCustomer)
 		{
             try
             {
-                CrazyMelvinDAL dal = new CrazyMelvinDAL();
                 dal.InsertCustomer(newCustomer);
             }
             catch (Exception exceptional)
@@ -43,17 +44,33 @@ namespace RestServices.Controllers
 		}
 
         [HttpPut]
-        [Route(BaseRoute + "update")]
+        [Route(BaseRoute)]
         public IHttpActionResult UpdateCustomer([FromBody] Customer customer)
         {
+            try
+            {
+                dal.UpdateCustomer(customer);
+            }
+            catch (Exception exceptional)
+            {
+                return InternalServerError();
+            }
             return Ok(customer);
         }
 
         [HttpDelete]
-        [Route(BaseRoute + "deletes")]
-        public IHttpActionResult DeleteCustomer([FromBody] Customer customer)
+        [Route(BaseRoute + "{custId}")]
+        public IHttpActionResult DeleteCustomer(int custId)
         {
-            return Ok(customer);
+            try
+            {
+                dal.DeleteCustomer(custId);
+            }
+            catch (Exception exceptional)
+            {
+                return InternalServerError();
+            }
+            return Ok();
         }
 
     }

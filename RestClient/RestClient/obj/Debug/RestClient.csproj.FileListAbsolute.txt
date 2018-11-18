@@ -68,7 +68,6 @@ C:\Users\mmaxner1684\Desktop\SOAA4\RestClient\RestClient\obj\Debug\RestClient.cs
 C:\Users\mmaxner1684\Desktop\SOAA4\RestClient\RestClient\obj\Debug\RestClient.csproj.CopyComplete
 C:\Users\mmaxner1684\Desktop\SOAA4\RestClient\RestClient\obj\Debug\RestClient.dll
 C:\Users\mmaxner1684\Desktop\SOAA4\RestClient\RestClient\obj\Debug\RestClient.pdb
-C:\Users\mmaxner1684\Desktop\SOAA4\RestClient\RestClient\bin\Antlr3.Runtime.pdb
 C:\Users\mmaxner1684\Desktop\SOAA4\RestClient\RestClient\bin\System.Net.Http.Formatting.dll
 C:\Users\mmaxner1684\Desktop\SOAA4\RestClient\RestClient\bin\System.Net.Http.Formatting.xml
 C:\tmp\SOAA4\RestClient\RestClient\bin\RestClient.dll.config

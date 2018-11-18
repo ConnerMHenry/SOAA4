@@ -3,7 +3,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <body>
         <div class = "block" align="center" style="margin-right: 30%; margin-left: 30%;">
-		    <asp:Label runat="server" ID="DisplayLbl" CssClass ="basetext">Please generate a Purchase Order (P.O.)</asp:Label>  <input id="GeneratePoCheckbox" style="margin-top:5px" type="checkbox" />
+		    <asp:Label runat="server" ID="DisplayLbl" CssClass ="basetext">Please generate a Purchase Order (P.O.)</asp:Label>  <input id="GeneratePoCheckbox" style="margin-top:5px" type="checkbox" runat="server"/>
 	    </div>
         <!-- Customer Block -->
 	    <div class = "block" style="padding-top: 0px;">
@@ -57,6 +57,9 @@
                                 ErrorMessage="Invalid phone number format"
                                 CssClass="error"
                                 ValidationExpression="(\d{3}-\d{3}-\d{4})?"/>
+                        </td>
+                        <td>
+                            <asp:Button runat="server" CssClass="MyButton" id="Button1" Text="Execute" OnClick="ExecuteCustomer"/>
                         </td>
                     </tr>
                 </table>
@@ -131,6 +134,9 @@
                             <asp:CheckBox runat="server" ID="InStock" />
                             <br />
                             <br />
+                        </td>
+                        <td>
+                            <asp:Button runat="server" CssClass="MyButton" id="Button2" Text="Execute" OnClick="ExecuteProduct"/>
                         </td>
                     </tr>
                 </table>
@@ -208,6 +214,9 @@
                             <br />
                             <br />
                         </td>
+                        <td>
+                            <asp:Button runat="server" CssClass="MyButton" id="Button3" Text="Execute" OnClick="ExecuteOrder"/>
+                        </td>
                     </tr>
                 </table>
 		    </div>
@@ -228,6 +237,7 @@
                 <!-- Quantity Input -->
                 <asp:Label runat="server" Text="quantity" CssClass="inputtag" />
                 <asp:TextBox runat="server" ID="Quantity" CssClass="MyInput" />
+                <asp:Button runat="server" CssClass="MyButton" id="Button4" Text="Execute" OnClick="ExecuteCart"/>
 		    </div>
 	    </div>	
 

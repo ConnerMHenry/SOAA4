@@ -10,14 +10,15 @@ namespace RestServices.Controllers
 {
     public class ProductsController : ApiController
     {
+        CrazyMelvinDAL dal = new CrazyMelvinDAL();
         private const string BaseRoute = WebApiConfig.BaseEndpoint + "Product/";
 
+        [HttpGet]
         [Route(BaseRoute)]
 		public IEnumerable<Product> GetAllProducts()
 		{
             try
             {
-                CrazyMelvinDAL dal = new CrazyMelvinDAL();
                 return dal.GetAllProducts();
             }
             catch (Exception e)
@@ -27,24 +28,41 @@ namespace RestServices.Controllers
         }
 
         [HttpPost]
-        [Route(BaseRoute + "add")]
+        [Route(BaseRoute)]
         public IHttpActionResult InsertProduct([FromBody] Product newProduct)
         {
-            return Ok(newProduct);
+            try
+            {
+                dal.InsertProduct(newProduct);
+                return Ok(newProduct);
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError();
+            }
         }
 
         [HttpPut]
-        [Route(BaseRoute + "update")]
+        [Route(BaseRoute)]
         public IHttpActionResult UpdateProduct([FromBody] Product product)
         {
+            try
+            {
+                dal.UpdateProduct(product);
+            }
+            catch (Exception exceptional)
+            {
+                return InternalServerError();
+            }
             return Ok(product);
         }
 
         [HttpDelete]
-        [Route(BaseRoute + "delete")]
-        public IHttpActionResult UpdateDelete([FromBody] Product product)
+        [Route(BaseRoute + "{prodId}")]
+        public IHttpActionResult UpdateDelete(int prodId)
         {
-            return Ok(product);
+            dal.DeleteProduct(prodId);
+            return Ok();
         }
 
 

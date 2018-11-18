@@ -11,13 +11,14 @@ namespace RestServices.Controllers
 	public class OrderController : ApiController
 	{
         private const string BaseRoute = WebApiConfig.BaseEndpoint + "Order/";
+        CrazyMelvinDAL dal = new CrazyMelvinDAL();
 
+        [HttpGet]
         [Route(BaseRoute)]
 		public IEnumerable<Order> GetAllOrders()
 		{
             try
             {
-                CrazyMelvinDAL dal = new CrazyMelvinDAL();
                 return dal.GetAllOrders();
             }
             catch (Exception e)
@@ -27,24 +28,41 @@ namespace RestServices.Controllers
         }
 
         [HttpPost]
-        [Route(BaseRoute + "add")]
+        [Route(BaseRoute)]
         public IHttpActionResult InsertOrder([FromBody] Order newOrder)
-		{		
-			return Ok(newOrder);
-		}
+		{
+            try
+            {
+                dal.InsertOrder(newOrder);
+                return Ok(newOrder);
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError();
+            }
+        }
 
         [HttpPut]
-        [Route(BaseRoute + "update")]
+        [Route(BaseRoute)]
         public IHttpActionResult UpdateOrder([FromBody] Order order)
         {
+            try
+            {
+                dal.UpdateOrder(order);
+            }
+            catch (Exception exceptional)
+            {
+                return InternalServerError();
+            }
             return Ok(order);
         }
 
         [HttpDelete]
-        [Route(BaseRoute + "add")]
-        public IHttpActionResult DeleteOrder([FromBody] Order order)
+        [Route(BaseRoute + "orderId")]
+        public IHttpActionResult DeleteOrder(int orderId)
         {
-            return Ok(order);
+            dal.DeleteOrder(orderId);
+            return Ok();
         }
     }
 }
