@@ -4,6 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using JacobClient.Models;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using Newtonsoft.Json;
+using System.Text;
 
 namespace JacobClient.Controllers
 {
@@ -31,7 +36,9 @@ namespace JacobClient.Controllers
         {
             try
             {
-                // TODO: Add insert logic here
+				HttpClient http = new HttpClient();
+				http.BaseAddress = new Uri("http://localhost:55040/api/v1/");
+				HttpResponseMessage result = http.PostAsync("Customer/add", new StringContent(JsonConvert.SerializeObject(customer), Encoding.UTF8, "application/json")).Result;
 
                 return RedirectToAction("Index");
             }
@@ -45,9 +52,12 @@ namespace JacobClient.Controllers
         {
             try
             {
-                // TODO: Add update logic here
+				HttpClient http = new HttpClient();
+				http.BaseAddress = new Uri("http://localhost:55040/api/v1/");
+				HttpResponseMessage result = http.PutAsync("Customer/add", new StringContent(JsonConvert.SerializeObject(customer), Encoding.UTF8, "application/json")).Result;
 
-                return RedirectToAction("Index");
+
+				return RedirectToAction("Index");
             }
             catch
             {

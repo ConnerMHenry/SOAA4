@@ -105,6 +105,15 @@ namespace RestServices
             return carts;
         }
 
+		public IEnumerable<PurchaseOrder> GetPurchaseOrdersByQuery(Dictionary<string, string> query)
+		{
+			List<PurchaseOrder> purchase_orders = new List<PurchaseOrder>();
+			conn.Open();
+			SqlCommand com = conn.CreateCommand();
+			com.CommandText = CustomerSelect;
+			return purchase_orders;
+		}
+
         public IEnumerable<Customer> GetAllCustomers()
         {
             return GetCustomersByQuery();

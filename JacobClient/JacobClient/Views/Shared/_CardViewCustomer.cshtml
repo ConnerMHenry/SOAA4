@@ -4,7 +4,7 @@
     <div class="row">
         <h3><strong>Customer</strong></h3>
     </div>
-    @using (Html.BeginForm("InsertUpdate", "Customer", FormMethod.Post, new { id = "insertUpdateCustomerForm" }))
+    @using (Html.BeginForm("Insert", "Customer", FormMethod.Post, new { id = "insertUpdateCustomerForm" }))
     {
         @Html.ValidationSummary(true)
         <fieldset @Html.Raw(Model.IsControlEnabled ? "" : "disabled")>

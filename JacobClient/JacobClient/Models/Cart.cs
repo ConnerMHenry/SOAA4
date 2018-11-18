@@ -2,14 +2,19 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Newtonsoft.Json;
 
 namespace JacobClient.Models
 {
+	[JsonObject]
     public class Cart
     {
-        public int OrderId { get; set; }
-        public int ProductId { get; set; }
-        public int Quantity { get; set; }
+		[JsonProperty]
+		public int OrderId { get; set; }
+		[JsonProperty]
+		public int ProductId { get; set; }
+		[JsonProperty]
+		public int Quantity { get; set; }
         public bool IsControlEnabled { get; set; } = true;
     }
 }
