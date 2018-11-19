@@ -16,22 +16,22 @@ namespace CrazyMelvinsCleint
 
         protected void SearchBtn_Click(object sender, EventArgs e)
         {
-            Server.Transfer("~/SecondPage.aspx?option=Search");
+            Response.Redirect("~/SecondPage.aspx?option=Search");
         }
 
         protected void InsertBtn_Click(object sender, EventArgs e)
         {
-            Server.Transfer("~/SecondPage.aspx?option=Insert");
+            Response.Redirect("~/SecondPage.aspx?option=Insert");
         }
 
         protected void UpdateBtn_Click(object sender, EventArgs e)
         {
-            Server.Transfer("~/SecondPage.aspx?option=Update");
+            Response.Redirect("~/SecondPage.aspx?option=Update");
         }
 
         protected void DeletBtn_Click(object sender, EventArgs e)
         {
-            Server.Transfer("~/SecondPage.aspx?option=Delete");
+            Response.Redirect("~/SecondPage.aspx?option=Delete");
         }
     }
 }

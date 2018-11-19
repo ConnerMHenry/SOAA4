@@ -32,6 +32,10 @@ namespace RestServices
             if (query != null && query.Keys.Count > 0)
             {
                 com.CommandText += QueryToWhere(query);
+                foreach (KeyValuePair<string, string> pair in query)
+                {
+                    com.Parameters.Add("@" + pair.Key, pair.Value);
+                }
             }
             using (SqlDataReader reader = com.ExecuteReader())
             {
@@ -53,6 +57,10 @@ namespace RestServices
             if (query != null && query.Keys.Count > 0)
             {
                 com.CommandText += QueryToWhere(query);
+                foreach (KeyValuePair<string, string> pair in query)
+                {
+                    com.Parameters.Add("@" + pair.Key, pair.Value);
+                }
             }
             using (SqlDataReader reader = com.ExecuteReader())
             {
@@ -73,6 +81,10 @@ namespace RestServices
             if (query != null && query.Keys.Count > 0)
             {
                 com.CommandText += QueryToWhere(query);
+                foreach (KeyValuePair<string, string> pair in query)
+                {
+                    com.Parameters.Add("@" + pair.Key, pair.Value);
+                }
             }
             using (SqlDataReader reader = com.ExecuteReader())
             {
@@ -93,6 +105,10 @@ namespace RestServices
             if (query != null && query.Keys.Count > 0)
             {
                 com.CommandText += QueryToWhere(query);
+                foreach (KeyValuePair<string, string> pair in query)
+                {
+                    com.Parameters.Add("@" + pair.Key, pair.Value);
+                }
             }
             using (SqlDataReader reader = com.ExecuteReader())
             {
@@ -105,13 +121,24 @@ namespace RestServices
             return carts;
         }
 
-		public IEnumerable<PurchaseOrder> GetPurchaseOrdersByQuery(Dictionary<string, string> query)
+		public PurchaseOrder GetPurchaseOrdersByQuery(Dictionary<string, string> query)
 		{
-			List<PurchaseOrder> purchase_orders = new List<PurchaseOrder>();
-			conn.Open();
-			SqlCommand com = conn.CreateCommand();
-			com.CommandText = CustomerSelect;
-			return purchase_orders;
+            PurchaseOrder po = new PurchaseOrder();
+            List<Customer> c = (List<Customer>)GetCustomersByQuery(query);
+            query["custId"] = c[0].custId.ToString();
+            po.customer = c[0];
+            List<Order> o = (List<Order>)GetOrdersByQuery(query);
+            po.order = o[0];
+            List<Product> p = (List<Product>)GetAllProducts();
+            po.products = new Dictionary<int, Product>();
+            foreach (Product pro in p)
+            {
+                po.products.Add(pro.prodId, pro);
+            }
+            List<Cart> carts = (List<Cart>)GetCartsByQuery(query);
+            po.carts = carts;
+
+			return po;
 		}
 
         public IEnumerable<Customer> GetAllCustomers()
@@ -175,7 +202,7 @@ namespace RestServices
         {
             conn.Open();
             SqlCommand com = conn.CreateCommand();
-            com.CommandText = "INSERT INTO tblOrder (orderId, prodId, quantity) VALUES (@orderId, @prodId, @quantity);";
+            com.CommandText = "INSERT INTO tblCart (orderId, prodId, quantity) VALUES (@orderId, @prodId, @quantity);";
             com.Parameters.AddWithValue("@orderId", cart.orderId);
             com.Parameters.AddWithValue("@prodId", cart.prodId);
             com.Parameters.AddWithValue("@quantity", cart.quantity);

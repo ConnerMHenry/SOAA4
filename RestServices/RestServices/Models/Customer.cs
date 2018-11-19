@@ -26,6 +26,14 @@ namespace RestServices.Models
             return JsonConvert.SerializeObject(this);
         }
 
+        public Customer()
+        {
+            custId = 0;
+            firstName = "";
+            lastName = "";
+            phoneNumber = "";
+        }
+
         public static Customer FromJson(string json)
         {
             try

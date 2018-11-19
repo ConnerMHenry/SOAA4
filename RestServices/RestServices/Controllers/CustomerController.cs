@@ -32,14 +32,11 @@ namespace RestServices.Controllers
         [Route(BaseRoute)]
 		public IHttpActionResult InsertCustomer([FromBody] Customer newCustomer)
 		{
-            try
+            if (newCustomer.custId > 0)
             {
-                dal.InsertCustomer(newCustomer);
+                return InternalServerError(new Exception("Can't specify Customer Id for new customers."));
             }
-            catch (Exception exceptional)
-            {
-                return InternalServerError();
-            }
+            dal.InsertCustomer(newCustomer);
 			return Ok(newCustomer);
 		}
 
