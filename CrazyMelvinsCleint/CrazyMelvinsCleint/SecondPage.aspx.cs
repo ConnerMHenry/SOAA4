@@ -353,6 +353,10 @@ namespace CrazyMelvinsCleint
             {
                 ord.poNumber = PoNumber.Text.ToString();
             }
+            else
+            {
+                ord.poNumber = "";
+            }
 
             return ord;
         }

@@ -3,5 +3,5 @@
 	[orderId] INT IDENTITY(1,1) PRIMARY KEY,
 	[custId] INT NOT NULL FOREIGN KEY REFERENCES tblCustomer(custId),
 	[orderDate] DATETIME NOT NULL,
-	[poNumber] TEXT
+	[poNumber] VARCHAR(MAX)
 )

@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [dbo].[tblCustomer]
 (
 	[custId] INT IDENTITY(1,1) PRIMARY KEY,
-	[firstName] TEXT NULL,
-	[lastName] TEXT NOT NULL,
-	[phoneNumber] TEXT NOT NULL
+	[firstName] VARCHAR(MAX) NULL,
+	[lastName] VARCHAR(MAX) NOT NULL,
+	[phoneNumber] VARCHAR(MAX) NOT NULL
 )

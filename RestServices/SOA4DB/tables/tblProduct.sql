@@ -1,8 +1,8 @@
 ﻿CREATE TABLE [dbo].[tblProduct]
 (
 	[prodId] INT IDENTITY(1,1) PRIMARY KEY,
-	[prodName] TEXT NOT NULL,
-	[price] DECIMAL NOT NULL,
-	[prodWeight] DECIMAL NOT NULL,
+	[prodName] VARCHAR(MAX) NOT NULL,
+	[price] DECIMAL(18, 2) NOT NULL,
+	[prodWeight] DECIMAL(18, 2) NOT NULL,
 	[inStock] BIT NOT NULL
 )

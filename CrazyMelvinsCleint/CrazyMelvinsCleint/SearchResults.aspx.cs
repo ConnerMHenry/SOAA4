@@ -32,7 +32,7 @@ namespace CrazyMelvinsCleint
                 case "Cart":
                     html = ShowCarts();
                     break;
-                case "PurchaseOrder":
+                case "ProductOrder":
                     html = ShowPO();
                     break;
             }
